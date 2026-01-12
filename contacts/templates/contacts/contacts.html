@@ -1,0 +1,82 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'deps/css/contacts/contacts.css' %}">
+{% endblock  %}
+
+<title>К{{context}}</title>
+
+<body>
+{% block main %}
+	<main class="main">
+		<div class="container">
+			<div class="main__row">
+				<div class="main__inform">
+					<div class="main__inform-title">{{location.title}}</div>
+					<div class="main__inform-body">
+						<div class="main__inform-iframe">
+							<iframe src="{{location.map_url}}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+						</div>
+						<div class="main__inform-text">
+							<div class="main__inform-text-title">
+								{{location.name}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="main__content">
+					<h1>Наші контакти</h1>
+					<div class="main__content-body">
+						<div class="main__content-image">
+							<img src="{{contact.image.url}}" alt="">
+						</div>
+						<div class="main__content-text">
+							<div class="telephone">
+								<h2>Відділ продажу</h2>
+								<p>тел. {{contact.telephone}}</p>
+									<div class="messenger">
+										<img src="{% static 'deps/img/contacts/free-icon-viber-3670059.png' %}" alt="">
+										<img src="{% static 'deps/img/contacts/free-icon-telegram-2111646.png' %}" alt="">
+										<img src="{% static 'deps/img/contacts/free-icon-whatsapp-4494494.png' %}" alt="">
+									</div>
+							</div>
+							<div class="e-mail">
+								e-mail: {{contact.e_mail}}
+							</div>
+							<h2>Соціальні мережі</h2>
+							<div class="social__networks">
+								<a href="https://www.instagram.com/sichenergy_zp/?locale=ru" target="_blank">
+									<img src="{% static 'deps/img/contacts/free-icon-instagram-4494488.png' %}" alt="">
+								</a>
+								<a href="https://www.facebook.com/tov.vtk.sic.energo" target="_blank">
+									<img src="{% static 'deps/img/contacts/free-icon-facebook-4494475.png' %}" alt="">
+								</a>
+								<a href="https://x.com/sichenergo" target="_blank">
+									<img src="{% static 'deps/img/contacts/free-icon-twitter-5969020.png' %}" alt="">
+								</a>
+							</div>	
+						</div>
+					</div>
+					<div class="details">
+						<p>Адреса: 69006, м. Запоріжжя, площа Запорізька, 1-Б</p>
+						<p>Код за ЄДРПОУ: 34500945</p>
+						<p>IBAN UA: 853133990000026000020200225 </p>
+						<p>в АТ КБ «ПРИВАТБАНК» м. Запоріжжя</p>
+						<p>МФО 305299</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script>
+	function toggleMenu() {
+		const menu = document.querySelector('.menu');
+		menu.classList.toggle('active');
+	}
+	</script>
+{% endblock  %}
+			
+</body>
+</html>

@@ -1,0 +1,226 @@
+@import url('../null&header&footer.css');
+
+/*----------------------------------MAIN-------------------------------*/
+
+.main {
+	margin: 17px 0;
+}
+
+.main__row {
+	display: flex;
+	width: 100%;
+	gap: 20px; /* Расстояние между блоками */
+	
+}
+
+.main__inform {
+	width: 30%;
+	background-color: #e5e5e5;
+	padding: 20px;
+	margin: 0px 0px 0px 20px ;
+}
+
+.main__inform-title {
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	margin: 0px 0px 36px 0px;
+}
+
+.main__inform-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #ccc;
+	margin: 15px;
+	padding: 10px;
+	background-color: #fff;
+	transition: all 0.3s ease;
+}
+
+.main__inform-body:hover{
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	transform: scale(1.04);
+}
+
+.main__inform-image img{
+	width: 100%;
+}
+
+.main__inform-text {
+	text-align: justify;
+	margin: 20px 0px 0px 0px ;
+	padding: 5px;
+	color: #000;
+}
+
+.main__inform-text-title {
+	font-size: 24px;
+	text-align: center;
+	margin: 5px;
+	font-style: italic;
+}
+
+.main__inform-text-save {
+	text-align: center;
+	margin: 30px 0px 0px 0px;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: 630;
+	letter-spacing: 0.7px;
+}
+
+/*-------------------------------main content----------------------------*/
+
+.main__content {
+	width: 70%;
+	background-color: #e5e5e5;
+	padding: 20px;
+	margin: 0px 20px 0px 0px;
+}
+
+h1{
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	margin: 0px 0px 20px 0px;
+	letter-spacing: 1.5px;
+	word-spacing: 1px;
+}
+
+.main__content-about-body {
+	margin: 30px 0px 0px 0px;
+	transition: all 0.9s ease;
+}
+
+.main__inform-body:active {
+	box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+	transform: translateY(9px); /* Более сильный "спуск" */
+	background: #e0e0e0;
+}
+
+.main__content-about-image {
+	width: 40%;
+	float: left;
+	margin: 0px 30px 11px 0px;
+}
+
+.main__content-about-image img{
+	width: 100%;
+}
+
+.main__content-about-link{
+	color: #0000CD;
+}
+
+.main__content-about-text p {
+	line-height: 1.6; /* Межстрочный интервал */
+	margin-bottom: 1rem; /* Отступ между абзацами */
+	hyphens: auto; /* Автоматические переносы слов */
+	text-align: justify; /* Выравнивание текста по ширине */
+	text-justify: inter-word; /* Регулирует пробелы между словами */
+	text-indent: 2em; /* Отступ для первой строки абзаца */
+}
+
+.main__content-about-text p{
+	margin: 0px 0px 10px 0px;
+	line-height: 1.5;
+	font-size: 18px;
+}
+
+.about__last-p:last-child{
+	text-align: center;
+	font-weight: 500;
+	text-transform: uppercase;
+	margin: 30px 0px 10px 0px;
+	font-size: 22px;
+	letter-spacing: 1.5px;
+	font-style: italic;
+}
+
+/*----------Адаптивна вёрстка-----------*/
+
+@media(min-width: 1999px){
+	.main__inform-title {
+		font-size: 28px;
+	}
+
+	.main__inform-text-title {
+		font-size: 28px;
+	}
+
+	.main__inform-text-save {
+		font-size: 20px;
+	}
+
+	h1{
+		font-size: 24px;
+		margin-bottom: 35px;
+	}
+
+	.main__content-about-text p{
+		font-size: 22px;
+	}
+}
+
+@media(max-width: 1024px){
+	.main__inform-text-title {
+		font-size: 18px;
+	}
+
+	.main__inform-text-save {
+		font-size: 14px;
+	}
+
+	h1{
+		font-size: 24px;
+	}
+
+	.main__content-about-text p{
+		font-size: 15px;
+	}
+}
+
+@media(max-width: 768px){
+	.main__row{
+		flex-direction: column;
+	}
+
+	.main__inform{
+		order: 2;
+		margin: 0px auto;
+		width: 90%;
+	}
+
+	.main__content{
+		order: 1;
+		width: 90%;
+		margin: 0px auto;
+	}
+}
+
+@media(max-width: 480px){
+	.main__content-about-body{
+		display: flex;
+		flex-direction: column;
+	}
+
+	h1{
+		margin: 10px 0px 0px 0px;
+	}
+
+	.main__content-about-image{
+		width: 90%;
+		margin: 0px auto;
+		margin-bottom: 15px;
+	}
+
+	.about__last-p:last-child{
+		font-size: 18px;
+	}
+}

@@ -1,0 +1,241 @@
+@import url('../null&header&footer.css');
+
+/*-----------------------------------------------MAIN----------------------------------------------------*/
+
+.main {
+	margin: 17px 0;
+}
+
+/*------------------------------------------Модальное окно-----------------------------------------------*/
+
+/* Модальное окно */
+.modal {
+	display: none; /* Скрыто по умолчанию */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+/* Содержимое модального окна */
+.modal-content {
+	display: flex;
+	background-color: #fff;
+	padding: 20px;
+	max-width: 1000px;
+	width: 90%;
+	border-radius: 10px;
+	position: relative;
+}
+
+.modal-content img {
+	width: 50%;
+	height: auto;
+	margin-right: 20px;
+}
+
+.modal-content video {
+	width: 50%;
+	height: 500px;
+	margin-right: 20px;
+}
+
+.modal-content .modal-text {
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+}
+
+/* Стили для заголовка */
+.modal-title {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+/* Стили для основного текста */
+.modal-body {
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.modal-text {
+	margin: 10px 0;
+}
+
+/*------------------------------------------------------------------------------------------*/
+
+.modal-text-content {
+	margin: 0px 0px 40px 0px;
+	line-height: 1.5;
+}
+
+.modal-region {
+	margin: 0px 0px 10px 0px;
+	font-weight: 700;
+}
+
+.modal-name {
+	margin: 0px 0px 10px 0px;
+	font-weight: 700;
+}
+
+.modal-heading {
+	margin: 0px 0px 10px 0px;
+	font-weight: 700;
+}
+
+/*------------------------------------------------------------------------------------------------*/
+
+/* Кнопка закрытия модального окна */
+.modal-close {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	background: none;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.modal-close:hover {
+	color: red;
+}
+
+/* Активное модальное окно */
+.modal.active {
+	display: flex;
+}
+
+/*-----------------------------------------main content---------------------------------------------*/
+
+.main__content {
+	width: 90%;
+	background-color: #e5e5e5;
+	padding: 20px;
+	margin: 0px 20px 0px 0px;
+	margin: 0 auto;
+}
+
+h1{
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	margin: 0px 0px 20px 0px;
+	letter-spacing: 1.5px;
+	word-spacing: 1px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.main__news-items {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around; /*Размещаем блоки на равном расстоянии*/
+	align-items: center; /* Выравниваем блоки по центру по вертикали */
+	cursor: pointer;
+}
+
+.main__news-item {
+	border: 1px solid #ccc;
+	padding: 10px;
+	background-color: #fff;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+	width: 30%;
+	margin: 15px;
+}
+
+.main__news-item-image img{
+	width: 100%;
+	height: 400px; /* Увеличенная высота для всех картинок */
+	object-fit: cover; /* Картинка будет обрезана по необходимости, чтобы соответствовать пропорциям */
+	margin-bottom: 10px;
+}
+
+.main__news-item-image video{
+	width: 100%;
+	height: 400px; /* Увеличенная высота для всех видео */
+	object-fit: cover; /* Видео будет обрезана по необходимости, чтобы соответствовать пропорциям */
+	margin-bottom: 10px;
+}
+
+.main__news-item-text {
+	display: none;
+	margin: 0px 0px 10px 0px;
+}
+
+.main__news-item-region {
+	margin: 0px 0px 10px 0px;
+}
+
+.main__news-item-name {
+	margin: 0px 0px 10px 0px;
+	font-weight: 700;
+}
+
+.main__news-item-heading {
+	margin: 0px 0px 10px 0px;
+	display: none;
+}
+
+.main__news-item:hover {
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	transform: scale(1.03);
+}
+
+/*-----Адаптивная вёрстка-------*/
+
+@media(min-width: 1800px){
+	h1{
+		font-size: 32px;
+	}
+}
+
+@media(max-width: 1500px){
+	.modal-content{
+		max-height: 90vh; /* Ограничение высоты, чтобы окно не выходило за пределы экрана */
+	}
+}
+
+@media(max-width: 1045px){
+	.main__news-item{
+		width: 40%;
+	}
+}
+
+@media(max-width: 700px){
+	.main__news-item{
+		width: 100%;
+		padding: 5px;
+	}
+
+	.modal-content{
+		flex-direction: column;
+		max-height: 90vh; /* Ограничение высоты, чтобы окно не выходило за пределы экрана */
+		overflow-y: auto; /* Добавление вертикальной прокрутки */
+	}
+
+	.modal-content img {
+		width: 100%;
+		height: auto;
+		margin-bottom: 10px;
+	}
+	
+	.modal-content video {
+		width: 100%;
+		margin: 0px auto;
+		margin-bottom: 10px;
+	}
+
+	.modal-close{
+		color: red;
+	}
+}

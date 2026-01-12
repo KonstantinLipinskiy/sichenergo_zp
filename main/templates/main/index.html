@@ -1,0 +1,81 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" href='{% static "deps/css/style.css" %}'>
+{% endblock css %}
+{% block title %}
+	{{context}}
+{% endblock title %}
+
+
+<body>
+	{% block main %}
+		<main class="main">
+			<div class="container">
+				<div class="main__row">
+					<div class="main__inform">
+						<div class="main__inform-title">{{info.title}}</div>
+							<div class="main__inform-body">
+								<div class="main__inform-image">
+									<img class="main__inform-image" src="{{info.image.url}}" alt="Зображення">
+								</div>
+								<div class="main__inform-text">
+									<div class="main__inform-text-title">
+										{{info.name}}
+									</div>
+									<div class="main__inform-text-text">
+										{{info.description}}
+									</div>
+									<div class="main__inform-text-deital">
+										<p>Детальніше</p>
+									</div>
+								</div>
+							</div>
+					</div>
+					<div class="main__content">
+						<h1>Обери свою продукцію</h1>
+						<div class="main__content-index-items">
+							{% for item in items %}
+								{% if item.title == 'Трансформатори' %} 
+									<a class="index-link" href="{% url 'products:transformers' %}"> 
+								{% elif item.title == 'Трансформаторні підстанції' %}
+									<a class="index-link" href="{% url 'products:ktp' %}">
+								{% elif item.title == 'Послуги' %}
+									<a class="index-link" href="{% url 'service:service' %}">
+								{% endif %}
+										<div class="main__content-index-item">
+											<div class="main__content-index-video">
+												<img src="{{item.image.url}}">
+											</div>
+											<div class="main__content-index-title">{{item.title}}</div>
+										</div>
+									</a>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+				<!-- Модальное окно -->
+
+		<div class="modal">
+			<div class="modal-content">
+				<span class="modal-close">&times;</span>
+				<img src="" alt="">
+				<div class="modal-text"></div>
+			</div>
+		</div>
+
+		<script>
+			function toggleMenu() {
+				const menu = document.querySelector('.menu');
+				menu.classList.toggle('active');
+			}
+		</script>
+		<script src='{% static "deps/js/news-index.js" %}'></script>
+	{% endblock main %}
+</body>
+</html>

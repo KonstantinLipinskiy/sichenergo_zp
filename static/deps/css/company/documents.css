@@ -1,0 +1,377 @@
+@import url('../null&header&footer.css');
+
+/*----------------------------------MAIN-------------------------------*/
+
+.main {
+	margin: 17px 0;
+}
+
+.main__row {
+	display: flex;
+	width: 100%;
+	gap: 20px; /* Расстояние между блоками */
+}
+
+.main__inform {
+	width: 30%;
+	background-color: #e5e5e5;
+	padding: 20px;
+	margin: 0px 0px 0px 20px ;
+}
+
+.main__inform-title {
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	margin: 0px 0px 45px 0px;
+}
+
+.main__inform-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #ccc;
+	margin: 15px;
+	padding: 10px;
+	background-color: #fff;
+	transition: all 0.3s ease;
+}
+
+.main__inform-body:hover{
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	transform: scale(1.04);
+}
+
+.main__inform-image img{
+	width: 100%;
+}
+
+.main__inform-text {
+	text-align: justify;
+	margin: 20px 0px 0px 0px ;
+	padding: 5px;
+}
+
+.main__inform-text-title {
+	font-size: 24px;
+	text-align: center;
+	margin: 5px;
+	font-style: italic;
+}
+
+.main__inform-text-text {
+	display: none;
+	padding: 15px;
+}
+
+.main__inform-text-text p{
+	margin: 0px 0px 10px 0px;
+}
+
+.main__inform-text-deital {
+	text-align: center;
+	margin: 30px 0px 0px 0px;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: 630;
+}
+
+/*-----------------------------Модальное окно----------------------------*/
+
+/* Модальное окно */
+.modal {
+	display: none; /* Скрыто по умолчанию */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+/* Содержимое модального окна */
+.modal-content {
+	display: flex;
+	background-color: #fff;
+	padding: 20px;
+	max-width: 1000px;
+	width: 90%;
+	border-radius: 10px;
+	position: relative;
+}
+
+.modal-content img {
+	width: 50%; /* Лимит для картинки в модальном окне */
+	height: auto;
+	margin-right: 20px;
+}
+
+.modal-content .modal-text {
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+	text-align: justify;
+}
+
+/* Стили для заголовка */
+.modal-title {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+/* Стили для основного текста */
+.modal-body {
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.modal-text {
+	margin: 10px 0;
+}
+
+/* Кнопка закрытия модального окна */
+.modal-close {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	background: none;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.modal-close:hover {
+	color: red;
+}
+
+/* Активное модальное окно */
+.modal.active {
+	display: flex;
+}
+
+/* Модальное окно для изображений */
+.image-modal {
+	display: none; /* Скрыто по умолчанию */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	justify-content: center;
+	align-items: center;
+	z-index: 1500;
+ }
+ 
+ .image-modal.active {
+	display: flex; /* Показываем окно при активации */
+ }
+ 
+ .image-modal-content {
+	position: relative;
+	max-width: 90%;
+	max-height: 90%;
+ }
+ 
+ .image-modal-content img {
+	display: block; /* Убирает возможные дополнительные отступы */
+	max-width: 100%; /* Ограничиваем ширину картинки размером контейнера */
+	max-height: 90vh; /* Ограничиваем высоту картинки 90% высоты экрана */
+	object-fit: contain; /* Устанавливает пропорциональное масштабирование */
+	margin: auto; /* Центрирование изображения */
+ }
+ 
+ .image-modal-close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 24px;
+	color: #fff;
+	cursor: pointer;
+	transition: color 0.3s;
+ }
+ 
+ .image-modal-close:hover {
+	color: red;
+ }
+
+/*------------------------------main content------------------------------*/
+
+.main__content {
+	width: 70%;
+	background-color: #e5e5e5;
+	padding: 20px;
+	margin: 0px 20px 0px 0px;
+}
+
+h1{
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	margin: 0px 0px 20px 0px;
+	letter-spacing: 1.5px;
+	word-spacing: 1px;
+}
+
+/*-------------------------------------------------------------------------*/
+
+.main__content-documents-items {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.main__content-documents-item {
+	width: 35%;
+	border: 1px solid #ccc;
+	padding: 10px;
+	background-color: #fff;
+	margin: 20px 40px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+}
+
+.main__content-documents-item:hover{
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	transform: scale(1.04);
+	font-weight: 700;
+	font-size: 16px;
+}
+
+.main__content-documents-image {
+	margin: 0px 0px 20px 0px;
+}
+
+.main__content-documents-image img{
+	width: 100%;
+}
+
+.main__content-documents-title {
+	text-align: center;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+/*----------Адаптивная вёрстка------------*/
+
+@media(max-width: 1024px){
+	.main__inform-title {
+		text-align: center;
+		font-size: 16px;
+	}
+
+	.main__inform-text-title {
+		font-size: 18px;
+	}
+
+	.main__inform-text-deital {
+		font-size: 14px;
+	}
+
+	.modal-close{
+		color: red;
+	}
+
+	.image-modal-close{
+		color: red;
+	 }
+
+	 .main__content-documents-items{
+		justify-content: space-around;
+	 }
+
+	 .main__content-documents-item {
+		width: 35%;
+		margin: 10px;
+	}
+}
+
+@media(max-width: 858px){
+	.main__content-documents-title{
+		font-size: 14px;
+	}
+}
+
+@media(max-width: 768px){
+	.main__row{
+		flex-direction: column;
+	}
+
+	.main__inform{
+		order: 2;
+		width: 90%;
+		margin: 0px auto;
+	}
+
+	.main__content{
+		order: 1;
+		width: 90%;
+		margin: 0px auto;
+	}
+
+	.main__content-documents-item {
+		width: 40%;
+	}
+}
+
+@media(max-width: 719px){
+	.modal-content{
+		flex-direction: column;
+		max-height: 90%;
+		overflow-x: auto;
+	}
+
+	.modal-content img {
+		width: 70%; /* Лимит для картинки в модальном окне */
+		margin: 0px auto;
+		margin-bottom: 20px;
+		max-height: 400px;
+	}
+
+	.main__inform-title {
+		text-align: center;
+		font-size: 24px;
+		font-weight: bold;
+		margin-bottom: 10px;
+		text-transform: uppercase;
+		margin: 0px 0px 25px 0px;
+	}
+
+	.main__content-documents-title {
+		text-align: center;
+		font-size: 18px;
+		text-transform: uppercase;
+	}
+
+	.main__inform-text {
+		font-size: 16px;
+	}
+
+	.main__inform-text-deital {
+		font-size: 18px;
+	}
+
+}
+
+@media(max-width: 463px){
+	.modal-content img {
+		width: 100%; /* Лимит для картинки в модальном окне */
+	}
+
+}
+
+@media(max-width: 462px){
+	.main__content-documents-item {
+		width: 100%;
+	}
+}

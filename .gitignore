@@ -1,0 +1,41 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyd
+*.pyo
+*.egg-info/
+.pytest_cache/
+venv/
+.env
+.env.local
+.env*.local
+
+# === Django ===
+db.sqlite3
+debug.log
+/media/
+/staticfiles/
+/avatars/
+
+# === Node.js/Vue.js ===
+node_modules/
+npm-debug.log*
+dist/
+.DS_Store
+
+# === IDE ===
+.idea/
+.vscode/
+*.swp
+*.swo
+*.log
+
+# === Тесты и покрытие кода ===
+coverage/
+*.coverage
+htmlcov/
+.hatch/
+
+#python stuff
+.pylintrc

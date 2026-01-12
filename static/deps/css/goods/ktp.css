@@ -1,0 +1,240 @@
+@import url('../null&header&footer.css');
+
+/*----------------------------------MAIN-------------------------------*/
+
+.main {
+	margin: 17px 0;
+}
+
+.main__row {
+	display: flex;
+	width: 100%;
+	gap: 20px; /* Расстояние между блоками */
+	
+}
+.main__inform {
+	width: 30%;
+	background-color: #e5e5e5;
+	padding: 20px;
+	margin: 0px 0px 0px 20px ;
+}
+
+.download-link{
+	color: #000;
+}
+
+.main__inform-title {
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	margin: 0px 0px 40px 0px;
+}
+
+.main__inform-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #ccc;
+	margin: 15px;
+	padding: 10px;
+	background-color: #fff;
+	transition: all 0.3s ease;
+}
+
+.main__inform-body:hover{
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	transform: scale(1.04);
+}
+
+.main__inform-body:active {
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); /* Уменьшение тени при нажатии */
+	transform: translateY(7px); /* Смещение вниз */
+}
+
+.main__inform-video video{
+	width: 100%;
+}
+
+.main__inform-text-title {
+	font-size: 24px;
+	text-align: center;
+	margin: 10px;
+	font-style: italic;
+}
+
+.main__inform-text-save {
+	text-align: center;
+	margin: 30px 0px 0px 0px;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: 630;
+}
+
+/*-----------------------------------------main content---------------------------------------------*/
+
+.main__content {
+	width: 70%;
+	background-color: #e5e5e5;
+	padding: 20px;
+	margin: 0px 20px 0px 0px;
+}
+
+h1{
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	margin: 0px 0px 30px 0px;
+	letter-spacing: 1.5px;
+	word-spacing: 1px;
+}
+
+/*--------------------------------------------------------------------------------------------------*/
+
+.main__content-image {
+	width: 40%;
+	float: left;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	padding: 10px;
+	margin: 0px 20px 0px 0px;
+}
+
+.main__content-image img{
+	width: 100%;
+}
+
+.main__content-text {
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+.main__content-text p{
+	margin: 0px 0px 10px 0px;
+	text-indent: 30px;
+	text-align: justify;
+}
+
+.main__content-text ul{
+	margin: 0px 0px 10px 0px;
+}
+
+.main__content-text li{
+	margin: 0px 0px 5px 0px;
+	text-indent: 30px;
+	text-align: justify;
+}
+
+span{
+	font-weight: 700;
+}
+
+/*-------------Адаптивная вёрстка-------------------*/
+
+@media(min-width: 1800px){
+	h1{
+		font-size: 28px;
+	}
+
+	.main__content-text {
+		font-size: 24px;
+	}
+
+	.main__inform-title{
+		font-size: 28px;
+	}
+}
+
+@media(max-width: 1024px){
+	.main__inform{
+		padding: 16px;
+	}
+
+	.main__inform-title {
+		text-transform: uppercase;
+		margin: 15px 0px 48px 0px;
+	}
+
+	.main__inform-body{
+		width: 100%;
+		margin: 0px auto;
+	}
+
+	.main__inform-text-title {
+		font-size: 20px;
+	}
+}
+
+@media(max-width: 940px){
+	.main__row{
+		flex-direction: column;
+	}
+
+	.main__content{
+		order: 1;
+		width: 90%;
+		margin: 0px auto;
+	}
+
+	.main__inform{
+		order: 2;
+		width: 90%;
+		margin: 0px auto;
+	}
+
+	.main__inform-title {
+		margin: 20px 0px 30px 0px;
+	}
+}
+
+@media(max-width: 768px){
+	.main__content-text{
+		font-size: 14px;
+	}
+}
+
+@media(max-width: 616px){
+	h1{
+		font-size: 20px;
+	}
+}
+
+@media(max-width: 580px){
+	.main__content-text{
+		font-size: 16px;
+	}
+
+	.main__content-image {
+		padding: 5px;
+	}
+}
+
+@media(max-width: 529px){
+	h1{
+		font-size: 18px;
+	}
+}
+
+@media(max-width: 464px){
+	.main__content{
+		display: flex;
+		flex-direction: column;
+	}
+
+	h1{
+		margin-bottom: 20px;
+	}
+
+	.main__content-image {
+		width: 90%;
+		margin: 0px auto;
+		display: block;
+		margin-bottom: 20px;
+		padding: 5px;
+	}
+
+}

@@ -1,0 +1,80 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'deps/css/goods/ktp.css' %}">
+{% endblock %}
+
+	<title>{{context}}</title>
+
+<body>
+	{% block main %}
+		<main class="main">
+			<div class="container">
+				<div class="main__row">
+
+					<div class="main__inform">
+						<div class="main__inform-title">{{ktp.title}}</div>
+						<div class="main__inform-body">
+							<a href="{{ktp.file_ol.url}}" download class="download-link">
+								<div class="main__inform-video">
+									<video autoplay muted loop playsinlin src="{{ktp.video.url}}"></video>
+								</div>
+								<div class="main__inform-text">
+									<div class="main__inform-text-title">
+										{{ktp.description}}
+									</div>
+									<div class="main__inform-text-save">
+										<p>Скачати</p>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="main__content">
+						<h1>Виробництво трансформаторних підстанцій</h1>
+						<div class="main__content-image">
+							<img src="{% static 'deps/img/ktp/kso.jpg' %}" alt="">
+						</div>
+						<div class="main__content-text">
+							<p>
+								Ми спеціалізуємося на виробництві високоякісних трансформаторних підстанцій та комірок КСО, які відповідають сучасним вимогам безпеки та надійності. Наша продукція забезпечує безперебійне та ефективне постачання електроенергії, що є важливою складовою для промислових, комерційних та житлових об'єктів.
+							</p>
+							<p>
+								Наші трансформаторні підстанції призначені для роботи у найрізноманітніших умовах, включаючи підвищені вимоги до кліматичної стійкості та безпеки. Ми пропонуємо рішення з гнучкою адаптацією до специфіки проєктів, надаючи повний спектр послуг — від проєктування до сервісного обслуговування.
+							</p>
+							<p>
+								Що ми пропонуємо:
+							</p>
+							<ul>
+								<li> <span>Висока якість та надійність</span> — гарантія безперебійної роботи підстанцій навіть у найскладніших умовах;</li>
+								<li> <span>Індивідуальний підхід</span> — адаптуємо кожен проєкт до конкретних потреб клієнта;</li>
+								<li> <span>Підтримка та сервіс</span> — забезпечуємо своєчасне обслуговування та технічну підтримку.</li>
+							</ul>
+							<p>Звертайтеся до нас для отримання додаткової інформації та консультацій щодо вашого проєкту.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- Модальное окно -->
+		<div class="modal">
+			<div class="modal-content">
+				<span class="modal-close">&times;</span>
+				<img src="" alt="">
+				<div class="modal-text"></div>
+			</div>
+		</div>
+
+		<script>
+			function toggleMenu() {
+				const menu = document.querySelector('.menu');
+				menu.classList.toggle('active');
+			}
+		</script>
+	{% endblock %}
+			
+</body>
+</html>

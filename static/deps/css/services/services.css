@@ -1,0 +1,374 @@
+@import url('../null&header&footer.css');
+
+/*---------------------------------------------MAIN--------------------------------------------------*/
+
+.main {
+	margin: 17px 0;
+}
+
+.main__row {
+	display: flex;
+	width: 100%;
+	gap: 20px; /* Расстояние между блоками */
+}
+
+.main__inform {
+	width: 30%;
+	background-color: #e5e5e5;
+	padding: 20px;
+	margin: 0px 0px 0px 20px ;
+}
+
+.main__inform-title {
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	margin: 0px 0px 25px 0px;
+}
+
+.main__inform-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #ccc;
+	margin: 15px;
+	padding: 10px;
+	background-color: #fff;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+.main__inform-body:hover{
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	transform: scale(1.04);
+}
+
+.main__inform-image video{
+	width: 100%;
+}
+
+.main__inform-text {
+	text-align: justify;
+	margin: 20px 0px 0px 0px ;
+	padding: 5px;
+}
+
+.main__inform-text-title {
+	font-size: 24px;
+	text-align: center;
+	margin: 5px;
+	font-style: italic;
+	
+}
+
+.main__inform-text-text {
+	display: none;
+	padding: 15px;
+}
+
+.main__inform-text-text p{
+	margin: 0px 0px 10px 0px;
+}
+
+.main__inform-text-deital {
+	text-align: center;
+	margin: 30px 0px 0px 0px;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: 630;
+}
+
+/*------------------------------------------Модальное окно---------------------------------------------*/
+
+/* Модальное окно */
+.modal {
+	display: none; /* Скрыто по умолчанию */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+/* Содержимое модального окна */
+.modal-content {
+	display: flex;
+	background-color: #fff;
+	padding: 20px;
+	max-width: 1000px;
+	width: 90%;
+	border-radius: 10px;
+	position: relative;
+}
+
+.modal-content video {
+	width: 50%;
+	height: auto;
+	margin-right: 20px;
+}
+
+.modal-content .modal-text {
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+}
+
+/* Стили для заголовка */
+.modal-title {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+/* Стили для основного текста */
+.modal-body {
+	font-size: 16px;
+	line-height: 1.5;
+	text-align: justify;
+}
+
+.modal-text {
+	margin: 10px 0;
+}
+
+/* Кнопка закрытия модального окна */
+.modal-close {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	background: none;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.modal-close:hover {
+	color: red;
+}
+
+/* Активное модальное окно */
+.modal.active {
+	display: flex;
+}
+
+/*-----------------------------------------main content-----------------------------------------------*/
+
+.main__content {
+	width: 70%;
+	background-color: #e5e5e5;
+	padding: 20px;
+	margin: 0px 20px 0px 0px;
+}
+
+h1{
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px; /* Отступ под заголовком */
+	text-transform: uppercase;
+	margin: 0px 0px 20px 0px;
+	letter-spacing: 1.5px;
+	word-spacing: 1px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.main__content-services-image {
+	width: 40%;
+	float: left;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	padding: 10px;
+	margin: 0px 20px 0px 0px;
+}
+
+.main__content-services-image img{
+	width: 100%;
+}
+
+.main__content-services-text {
+	margin: 0px 0px 10px 0px;
+	text-indent: 30px;
+	text-align: justify;
+	font-size: 17px;
+	line-height: 1.5;
+}
+
+.main__content-services-text p{
+	margin: 0px 0px 10px 0px;
+}
+
+h2{
+	font-size: 22px;
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+/*-----------Адаптивная вёрстка-------------*/
+
+@media(min-width: 2500px){
+	.modal-content{
+		width: 80%;
+		height: 80%;
+	}
+
+	.modal-title {
+		font-size: 24px;
+		margin-top: 15px;
+		margin-bottom: 10px;
+	}
+
+	.modal-body {
+		font-size: 16px;
+		overflow-x: auto;
+	}
+}
+
+@media(min-width: 1959px){
+	h1{
+		font-size: 36px;
+	}
+
+	.main__content-services-text {
+		font-size: 26px;
+	}
+
+	.main__inform-title {
+		text-align: center;
+		font-size: 20px;
+		font-weight: bold;
+		margin-bottom: 10px;
+		text-transform: uppercase;
+		margin: 0px 0px 35px 0px;
+	}
+}
+
+@media(min-width: 1026px) and (max-width: 1501px){
+	.modal-content{
+		width: 80%;
+		height: 80%;
+	}
+}
+
+@media(max-width: 1025px){
+	.modal-content{
+		width: 80%;
+		height: 80%;
+	}
+}
+
+@media(max-width: 951px){
+
+	.main__inform-title{
+		font-size: 18px;
+	}
+
+	.main__inform-body {
+		margin: 5px;
+		padding: 5px;
+		width: 100%;
+	}
+
+	.main__inform-text-title {
+		font-size: 20px;
+	}
+	
+	.main__inform-text-deital {
+		text-align: center;
+		margin: 30px 0px 10px 0px;
+	}
+
+	h1{
+		text-align: center;
+		font-size: 20px;
+		font-weight: bold;
+		margin-bottom: 10px; /* Отступ под заголовком */
+		text-transform: uppercase;
+		margin: 0px 0px 20px 0px;
+		letter-spacing: 1.5px;
+		word-spacing: 1px;
+	}
+
+	.main__content-services-image {
+		padding: 5px;
+	}
+
+	.main__content-services-text {
+		font-size: 14px;
+	}
+}
+
+@media(max-width: 882px){
+	.main__row{
+		flex-direction: column;
+	}
+
+	.main__inform{
+		order: 2;
+		width: 90%;
+		margin: 0px auto;
+	}
+
+	.main__content{
+		order: 1;
+		width: 90%;
+		margin: 0px auto;
+		}
+
+		.modal-close{
+			color: red;
+		}
+}
+
+@media(max-width: 821px){
+	.modal-title {
+		font-size: 20px;
+		margin-top: 15px;
+		margin-bottom: 10px;
+	}
+
+	.modal-body {
+		font-size: 14px;
+		overflow-x: auto;
+	}
+}
+
+@media(max-width: 684px){
+	.modal-content{
+		flex-direction: column;
+		max-height: 80%; /* Ограничиваем максимальную высоту */
+		overflow-y: auto; /* Добавляем вертикальную прокрутку */
+		padding: 20px; /* Убедитесь, что отступы корректны */
+		box-sizing: border-box; /* Учитываем границы и отступы */
+	}
+
+	.modal-content video{
+		width: 100%; /* Устанавливаем ширину в 100% или нужное значение */
+		margin: 0 auto; /* Центрируем горизонтально */
+		display: block; /* Убираем влияние float или других стилей */
+		height: 90%;
+	}
+}
+
+@media(max-width: 431px){
+	.main__content{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.main__content-services-image {
+		width: 90%;
+		padding: 10px;
+		margin: 0px auto;
+		margin-bottom: 10px;
+	}
+}
+

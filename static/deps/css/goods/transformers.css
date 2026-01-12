@@ -1,0 +1,332 @@
+@import url('../null&header&footer.css');
+
+/*----------------------------------MAIN-------------------------------*/
+
+.main {
+	margin: 17px 0;
+}
+
+.main__row {
+	display: flex;
+	width: 100%;
+	gap: 20px; /* Расстояние между блоками */
+	
+}
+
+.main__inform {
+	width: 30%;
+	background-color: #e5e5e5;
+	padding: 20px;
+	margin: 0px 0px 0px 20px ;
+}
+
+.download-link{
+	color: #000;
+}
+
+.main__inform-title {
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin: 7px 0px 50px 0px;
+}
+
+.main__inform-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #ccc;
+	margin: 15px;
+	padding: 10px;
+	background-color: #fff;
+	transition: all 0.3s ease;
+}
+
+.main__inform-body:hover{
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	transform: scale(1.04);
+}
+
+.main__inform-body:active {
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Уменьшение тени при нажатии */
+	transform: translateY(7px); /* Смещение вниз */
+}
+
+.main__inform-video video{
+	width: 100%;
+}
+
+.main__inform-text-title {
+	font-size: 24px;
+	text-align: center;
+	margin: 10px;
+	font-style: italic;
+}
+
+.main__inform-text-save {
+	text-align: center;
+	margin: 30px 0px 0px 0px;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: 630;
+}
+
+/*-----------------------------main content-----------------------------*/
+
+.main__content {
+	width: 70%;
+	padding: 20px;
+	margin: 0px 20px 0px 0px;
+	background-color: #e5e5e5;
+}
+
+h1{
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	margin: 0px 0px 20px 0px;
+	letter-spacing: 1.5px;
+	word-spacing: 1px;
+}
+
+/*--------------------------Оформлення таблиці--------------------------*/
+
+h2{
+	text-align: center;
+	font-size: 20px;
+	margin: 0px 0px 20px;
+	font-weight: 600;
+	font-style: italic;
+}
+
+.transformers-image {
+	width: 70%;
+	margin: 0px auto;
+	margin-bottom: 30px;
+}
+
+.transformers-image img{
+	width: 100%;
+}
+
+.save-tmg-dd{
+	border: 1px solid #ccc;
+	color: #000;
+	width: 20%;
+	display: block;
+	padding: 20px;
+	text-transform: uppercase;
+	margin: 0px auto;
+	letter-spacing: 1.5px;
+	font-weight: 700;
+	border-radius: 15px;
+	text-align: center;
+	background-color: #fff;
+	margin-bottom: 20px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный переход */
+	font-size: 18px;
+}
+
+/* Эффект увеличения при наведении */
+.save-tmg-dd:hover {
+	transform: scale(1.1); /* Увеличение */
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Добавление тени */
+ }
+ 
+ /* Эффект вдавливания при нажатии */
+ .save-tmg-dd:active {
+	transform: scale(0.95); /* Сжатие */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Уменьшение тени */
+ }
+
+/*-------------------------------carousel------------------------------*/
+
+.carousel {
+	position: relative;
+ }
+
+.carousel-inner {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+ .carousel-item {
+	position: relative;
+	display: none;
+	float: left;
+	width: 100%;
+	margin-right: -100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	transition: transform 0.6s ease-in-out;
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+	.carousel-item {
+	  transition: none;
+	}
+ }
+
+ .carousel-item.active,
+ .carousel-item-next,
+ .carousel-item-prev {
+	display: block;
+ }
+ 
+ .carousel-control-prev,
+ .carousel-control-next {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 15%;
+	padding: 0;
+	color: #fff;
+	text-align: center;
+	background: none;
+	border: 0;
+	opacity: 0.5;
+	transition: opacity 0.15s ease;
+ }
+ @media (prefers-reduced-motion: reduce) {
+	.carousel-control-prev,
+	.carousel-control-next {
+	  transition: none;
+	}
+ }
+
+ .carousel-control-prev:hover, .carousel-control-prev:focus,
+ .carousel-control-next:hover,
+ .carousel-control-next:focus {
+	color: #fff;
+	text-decoration: none;
+	outline: 0;
+	opacity: 0.9;
+ }
+ 
+ .carousel-control-prev {
+	left: 0px;
+ }
+ 
+ .carousel-control-next {
+	right: 0px;
+ }
+ 
+ .carousel-control-prev-icon,
+ .carousel-control-next-icon {
+	display: inline-block;
+	width: 2rem;
+	height: 2rem;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: 100% 100%;
+ }
+
+.carousel-control-prev-icon {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e") /*rtl:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")*/;
+}
+ 
+.carousel-control-prev-icon {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFD700'%3e%3cpath stroke-width='3' stroke='%23B8860B' d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+}
+
+ .carousel-control-next-icon {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") /*rtl:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e")*/;
+ }
+ 
+ .carousel-control-next-icon {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFD700'%3e%3cpath stroke-width='3' stroke='%23B8860B' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+/*-----------Адаптивная вёрстка----------------*/
+
+@media(max-width: 1025px){
+	.main__row{
+		flex-direction: column;
+	}
+
+	.main__inform{
+		order: 2;
+		width: 90%;
+		margin: 0px auto;
+	}
+
+	.main__content{
+		order: 1;
+		width: 90%;
+		margin: 0px auto;
+	}
+
+	.transformers-image{
+		width: 90%;
+	}
+}
+
+@media(max-width: 768px){
+	.save-tmg-dd{
+		width: 30%;
+	}
+
+	.main__inform-title{
+		margin: 0px 0px 30px 0px;
+	}
+
+}
+
+@media(max-width: 600px){
+	h1{
+		font-size: 22px;
+	}
+}
+
+@media(max-width: 545px){
+	.save-tmg-dd{
+		width: 40%;
+	}
+}
+
+@media(max-width: 480px){
+	.transformers-image{
+		width: 100%;
+	}
+
+	.main__inform{
+		width: 100%;
+	}
+
+	.main__inform-text-title {
+		font-size: 20px;
+	}
+
+	.carousel-control-prev {
+		left: -15px;
+	 }
+	 
+	 .carousel-control-next {
+		right: -15px;
+	 }
+}
+
+@media(max-width: 430px){
+	.save-tmg-dd{
+		width: 50%;
+	}
+
+	.main__inform-text-title {
+		font-size: 20px;
+	}
+}
+
+@media(max-width: 342px){
+	.save-tmg-dd{
+		width: 60%;
+	}
+}

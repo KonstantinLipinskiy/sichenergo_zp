@@ -1,0 +1,239 @@
+@import url('../null&header&footer.css');
+
+/*------------------------------------------MAIN-------------------------------------------*/
+
+.main {
+	margin: 17px 0;
+}
+
+.main__row {
+	display: flex;
+	width: 100%;
+	gap: 20px; /* Расстояние между блоками */
+}
+
+/*---------------------------------------main inform---------------------------------------*/
+
+.main__inform {
+	width: 30%;
+	background-color: #e5e5e5;
+	padding: 20px;
+	margin: 0px 0px 0px 20px ;
+}
+
+.main__inform-title {
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	margin: 0px 0px 50px 0px;
+}
+
+.main__inform-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #ccc;
+	margin: 15px;
+	padding: 10px;
+	background-color: #fff;
+	transition: all 0.3s ease;
+}
+
+.main__inform-body:hover{
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	transform: scale(1.04);
+}
+
+.main__inform-body:active {
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  
+	transform: translateY(7px);  
+}
+
+.main__inform-iframe iframe{
+	width: 100%;
+}
+
+.main__inform-text-title {
+	font-size: 24px;
+	text-align: center;
+	margin: 10px;
+	font-style: italic;
+}
+
+/*---------------------------------------main content----------------------------------------*/
+
+.main__content {
+	width: 70%;
+	background-color: #e5e5e5;
+	padding: 20px;
+	margin: 0px 20px 0px 0px;
+}
+
+h1{
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px; /* Отступ под заголовком */
+	text-transform: uppercase;
+	margin: 0px 0px 43px 0px;
+	letter-spacing: 1.5px;
+	word-spacing: 1px;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+
+.main__content-image {
+	width: 40%;
+	float: left;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	padding: 10px;
+	margin: 0px 20px 0px 0px;
+}
+
+.main__content-image img{
+	width: 100%;
+}
+
+.main__content-text {
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+.telephone{
+	display: flex;
+	flex-direction: column;
+	margin: 0px 0px 20px 0px;
+}
+
+h2{
+	font-size: 22px;
+	font-weight: 600;
+	text-decoration: underline;
+	margin: 0px 0px 20px 0px;
+}
+
+.telephone p{
+	font-style: italic;
+	margin: 0px 0px 5px 0px;
+	font-size: 22px;
+}
+
+.main__content-text img{
+	width: 40px;
+	margin: 0px 20px 0px 0px;
+}
+
+.e-mail{
+	font-style: italic;
+	margin: 0px 0px 20px 0px;
+	font-size: 22px;
+}
+
+.details{
+	margin: 70px 0px 0px 0px;
+}
+
+.details p{
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+.social__networks img{
+	transition: transform 0.3s ease;
+}
+
+.social__networks img:hover{
+	transform: scale(1.2);
+}
+
+/*----------------Алаптивная вёрстка-------------------*/
+
+@media(min-width: 1814px) and (max-width:2321px){
+	.main__content {
+		display: flex;
+		flex-direction: column; /* Элементы располагаются вертикально */
+	}
+
+	.details{
+		margin: 30px 0px 0px 0px;
+	}
+}
+
+@media (min-width: 1025px) and (max-width: 1301px){
+	.main__content-body{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.main__content-image{
+		width: 70%;
+		padding: 5px;
+		margin: 0px auto;
+		margin-bottom: 20px;
+	}
+
+	.main__content-text{
+		text-align: center;
+	}
+
+	.details{
+		text-align: center;
+	}
+}
+
+@media(max-width: 1023px){
+	.main__row{
+		flex-direction: column;
+	}
+
+	.main__inform{
+		order: 2;
+		margin: 0px auto;
+		width: 90%;
+	}
+
+	.main__content{
+		order: 1;
+		width: 90%;
+		margin: 0px auto;
+	}
+
+}
+
+@media(max-width: 964px){
+
+	h1{
+		text-align: center;
+		font-size: 24px;
+		font-weight: bold;
+		margin-bottom: 10px; /* Отступ под заголовком */
+		text-transform: uppercase;
+		margin: 0px 0px 23px 0px;
+		letter-spacing: 1.5px;
+		word-spacing: 1px;
+	}
+
+	.main__content-body{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.main__content-image{
+		width: 70%;
+		padding: 5px;
+		margin: 0px auto;
+		margin-bottom: 20px;
+	}
+
+	.main__content-text{
+		text-align: center;
+	}
+
+	.details{
+		text-align: center;
+	}
+}

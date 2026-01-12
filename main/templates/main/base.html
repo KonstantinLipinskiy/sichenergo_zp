@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="{% static 'deps/img/trans.png' %}" type="image/x-icon">
+	{% block css %}{% endblock css %}
+	{% block boxicon %}{% endblock %}
+	<title>{{title}}</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="content">
+			<div class="header">
+				<div class="container">
+					<div class="navbar">
+						<a href="{% url 'main:index' %}">
+							 <img src="{% static 'deps/img/logo/logo_SichEnergo.png' %}" alt="">
+						</a>
+						<div class="burger" onclick="toggleMenu()">
+							 <span></span>
+							 <span></span>
+							 <span></span>
+						</div>
+						<nav>
+							<ul class="menu">
+								<li><a href="#">Компанія</a>
+									<ul>
+										<li><a href="{% url 'company:about' %}">Про нас</a></li>
+										<li><a href="{% url 'company:documents' %}">Документи</a></li>
+										<li><a href="{% url 'company:reviews' %}">Відгуки</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Продукція</a>
+									<ul>
+										<li><a href="{% url 'products:transformers' %}">Трансформатори</a></li>
+										<li><a href="{% url 'products:ktp' %}">КТП</a></li>
+									</ul>
+								</li>
+								<li><a href="{% url 'service:service' %}">Послуги</a></li>
+								<li><a href="{% url 'news:news' %}">Новини</a></li>
+								<li><a href="{% url 'contacts:contacts' %}">Контакти</a></li>
+								<li><a href="{% url 'entrance:entrance' %}">Вхід</a></li>
+							</ul>
+						</nav>
+				  </div>
+				</div>
+			</div>
+			{% block main %}{% endblock main %}
+		</div>
+
+		<footer class="footer">
+			<div class="container">
+				<p>Запоріжжя</p>
+				<p>2025</p>
+			</div>
+		</footer>
+
+</body>
+</html>
