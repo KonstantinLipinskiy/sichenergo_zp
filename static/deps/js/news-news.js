@@ -24,7 +24,7 @@ document.querySelectorAll('.main__news-item').forEach(item => {
 
 		 // Обновляем текстовый контент
 		 modalText.innerHTML = `
-			  <p class="modal-text-content">${this.querySelector('.main__news-item-text p').innerText}</p>
+			  <div class="modal-text-content">${this.querySelector('.main__news-item-text').innerHTML}</div>
 			  <p class="modal-region">${this.querySelector('.main__news-item-region').innerText}</p>
 			  <p class="modal-name">${this.querySelector('.main__news-item-name').innerText}</p>
 			  <p class="modal-heading">${this.querySelector('.main__news-item-heading').innerText}</p>

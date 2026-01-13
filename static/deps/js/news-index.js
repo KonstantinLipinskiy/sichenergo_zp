@@ -1,5 +1,3 @@
-
-
 document.querySelectorAll('.main__inform-body').forEach(item => {
 	item.addEventListener('click', function() {
 		let modal = document.querySelector('.modal');

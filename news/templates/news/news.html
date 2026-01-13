@@ -26,7 +26,7 @@
 											</div>
 										{% endif %}
 										<div class="main__news-item-text">
-											<p>{{ news_item.content }}</p>
+											{{ news_item.content|linebreaks}}
 										</div>
 										<div class="main__news-item-region">Регіон {{ news_item.region }}</div>
 										<div class="main__news-item-name">{{ news_item.title }}</div>
@@ -55,7 +55,7 @@
 						menu.classList.toggle('active');
 					}
 				</script>
-				<script src="{% static "deps/js/news-news.js" %}"></script>
+				<script src="{% static 'deps/js/news-news.js' %}"></script>
 						
 			</div>
 		</main>
