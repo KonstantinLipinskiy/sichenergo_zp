@@ -75,12 +75,13 @@
 }
 
 .modal-text-content p{
-	margin: 0 0 1em;
+	margin: 0 0 0.2em;
 	line-height: 1.5;
 	text-align: justify;
 	text-justify: inter-word;
 	hyphens: auto;
 	overflow-wrap: break-word;
+	text-indent: 2em;
 }
 
 .modal-text-content p:last-child{
