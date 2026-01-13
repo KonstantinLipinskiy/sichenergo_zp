@@ -73,6 +73,9 @@
 .modal-text-content {
 	margin: 0px 0px 40px 0px;
 	line-height: 1.5;
+	margin-bottom: 1em; /* расстояние между абзацами */ 
+	text-align: justify; /* выравнивание текста по ширине */ 
+	/* line-height: 1.6; */
 }
 
 .modal-region {
