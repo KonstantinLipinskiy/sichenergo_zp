@@ -3,333 +3,317 @@
 /*----------------------------------MAIN-------------------------------*/
 
 .main {
-	margin: 17px 0;
+    margin: 17px 0;
 }
 
 .main__row {
-	display: flex;
-	width: 100%;
-	gap: 20px; /* Расстояние между блоками */
-	
+    display: flex;
+    width: 100%;
+    gap: 20px;
 }
 
 .main__inform {
-	width: 30%;
-	background-color: #e5e5e5;
-	padding: 20px;
-	margin: 0px 0px 0px 20px ;
+    width: 30%;
+    background-color: #e5e5e5;
+    padding: 20px;
+    margin: 0 0 0 20px;
 }
 
 .main__inform-title {
-	text-align: center;
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 10px;
-	text-transform: uppercase;
-	margin: 0px 0px 50px 0px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    margin: 0 0 50px 0;
 }
 
 .main__inform-body {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	border: 1px solid #ccc;
-	margin: 15px;
-	padding: 10px;
-	background-color: #fff;
-	transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    margin: 15px;
+    padding: 10px;
+    background-color: #fff;
+    transition: all 0.3s ease;
 }
 
-.main__inform-body:hover{
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-	transform: scale(1.04);
+.main__inform-body:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.04);
 }
 
-.main__inform-image img{
-	width: 100%;
-	height: 450px;
+.main__inform-image img {
+    width: 100%;
+    height: 450px;
 }
 
 .main__inform-text {
-	text-align: justify;
-	margin: 20px 0px 0px 0px ;
-	padding: 5px;
+    text-align: justify;
+    margin: 20px 0 0 0;
+    padding: 5px;
 }
 
 .main__inform-text-title {
-	font-size: 24px;
-	text-align: center;
-	margin: 5px;
-	font-style: italic;
-	
+    font-size: 24px;
+    text-align: center;
+    margin: 5px;
+    font-style: italic;
 }
 
 .main__inform-text-text {
-	display: none;
-	padding: 15px;
+    display: none;
+    padding: 15px;
 }
 
-.main__inform-text-text p{
-	margin: 0px 0px 10px 0px;
+.main__inform-text-text p {
+    margin: 0 0 10px 0;
 }
 
 .main__inform-text-deital {
-	text-align: center;
-	margin: 30px 0px 0px 0px;
-	font-size: 16px;
-	text-transform: uppercase;
-	font-weight: 630;
+    text-align: center;
+    margin: 30px 0 0 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 630;
 }
 
 /*------------------------------Модальное окно-------------------------*/
 
-/* Модальное окно */
 .modal {
-	display: none; /* Скрыто по умолчанию */
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.8);
-	justify-content: center;
-	align-items: center;
-	z-index: 1000;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-/* Содержимое модального окна */
 .modal-content {
-	display: flex;
-	background-color: #fff;
-	padding: 20px;
-	max-width: 1000px;
-	width: 90%;
-	border-radius: 10px;
-	position: relative;
+    display: flex;
+    background-color: #fff;
+    padding: 20px;
+    max-width: 1000px;
+    width: 90%;
+    border-radius: 10px;
+    position: relative;
 }
 
 .modal-content img {
-	width: 50%; /* Лимит для картинки в модальном окне */
-	height: 500px;
-	margin-right: 20px;
+    width: 50%;
+    height: 500px;
+    margin-right: 20px;
 }
 
 .modal-content .modal-text {
-	display: flex;
-	flex-direction: column;
-	font-size: 16px;
-	text-align: justify;
-}
-
-/* Стили для заголовка */
-.modal-title {
-	font-size: 24px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-/* Стили для основного текста */
-.modal-body {
-	font-size: 16px;
-	line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    text-align: justify;
 }
 
 .modal-text {
-	margin: 10px 0;
+    margin: 10px 0;
 }
 
-/* Кнопка закрытия модального окна */
+/* Заголовок */
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Основной текст (описание) */
+.modal-text-content p {
+    margin: 0 0 0.5em;
+    line-height: 1.6;
+    text-align: justify;
+    text-indent: 2em;
+    font-weight: normal;
+    text-transform: none;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Имя автора */
+.modal-name {
+    font-weight: 700;
+    margin-top: 25px;
+    text-align: left;
+}
+
+/* Регион */
+.modal-region {
+    font-weight: 600;
+    color: #555;
+    margin-top: 15px;
+    text-align: left;
+}
+
+/* Кнопка закрытия */
 .modal-close {
-	position: absolute;
-	top: 10px;
-	right: 20px;
-	background: none;
-	border: none;
-	font-size: 24px;
-	cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 .modal-close:hover {
-	color: red;
+    color: red;
 }
 
-/* Активное модальное окно */
 .modal.active {
-	display: flex;
+    display: flex;
 }
 
 /*------------------------------main content----------------------------*/
 
 .main__content {
-	width: 70%;
-	background-color: #e5e5e5;
-	padding: 20px;
-	margin: 0px 20px 0px 0px;
+    width: 70%;
+    background-color: #e5e5e5;
+    padding: 20px;
+    margin: 0 20px 0 0;
 }
 
-h1{
-	text-align: center;
-	font-size: 24px;
-	font-weight: bold;
-	margin-bottom: 10px;
-	text-transform: uppercase;
-	margin: 0px 0px 20px 0px;
-	letter-spacing: 1.5px;
-	word-spacing: 1px;
+h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+    letter-spacing: 1.5px;
+    word-spacing: 1px;
 }
 
 /*-------------------------------КОНТЕНТ---------------------------------*/
 
 .main__content-reviews-items {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
 }
 
-.main__content-reviews-item div{
-	margin: 0px 0px 10px 0px;
+.main__content-reviews-item div {
+    margin: 0 0 10px 0;
 }
 
 .main__content-reviews-item {
-	border: 1px solid #000;
-	width: 30%;
-	padding: 10px;
-	margin: 15px;
-	background-color: #fff;
-	border: 1px solid #ccc;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	transition: all 0.3s ease;
-	height: 40%;
+    width: 30%;
+    padding: 10px;
+    margin: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-.main__content-reviews-item:hover{
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-	transform: scale(1.04);
-	font-weight: 700;
+.main__content-reviews-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.04);
+    font-weight: 700;
 }
 
-.main__content-reviews-image img{
-	width: 100%;
+.main__content-reviews-image img {
+    width: 100%;
 }
 
 .main__content-reviews-title {
-	text-align: center;
-	text-transform: uppercase;
-	margin: 15px;
-	font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 15px;
+    font-size: 14px;
 }
 
 .main__content-reviews-text {
-	padding: 5px;
-	display: none;
+    padding: 5px;
+    display: none;
 }
 
 .main__content-reviews-transvormator {
-	font-weight: 700;
-	display: none;
+    font-weight: 700;
+    display: none;
 }
 
 .main__content-reviews-region {
-	text-align: center;
-}
-
-/*--------------------------------------------------------------------------*/
-
-.modal-content p {
-	font-size: 16px;
-	color: #333;
-	margin-bottom: 20px;
-}
-
-.modal-content p:first-child {
-	font-weight: bold;
-	font-size: 24px;
-}
-
-.modal-content p:nth-child(2) {
-	line-height: 1.5;
-}
-
-.modal-content p:nth-child(3) {
-	font-weight: 700;
-}
-
-.modal-content p:last-child {
-	color: #555;
-	font-weight: 700;
+    text-align: center;
 }
 
 /*--------------Адаптивная вёрстка---------------*/
 
-@media(max-width: 1025px){
-	.main__row{
-		flex-direction: column;
-	}
+@media(max-width: 1025px) {
+    .main__row {
+        flex-direction: column;
+    }
 
-	.main__inform{
-		order: 2;
-		width: 90%;
-		margin: 0px auto;
-	}
+    .main__inform {
+        order: 2;
+        width: 90%;
+        margin: 0 auto;
+    }
 
-	.main__inform-title {
-		margin: 10px 0px 30px 0px;
-	}
+    .main__inform-title {
+        margin: 10px 0 30px 0;
+    }
 
-	.main__content{
-		order: 1;
-		width: 90%;
-		margin: 0px auto;
-	}
+    .main__content {
+        order: 1;
+        width: 90%;
+        margin: 0 auto;
+    }
 
-	.main__content-reviews-items {
-		flex-wrap: wrap;
-	}
-
-	.main__content-reviews-item {
-		width: 40%;
-		padding: 5px;
-	}
+    .main__content-reviews-item {
+        width: 40%;
+        padding: 5px;
+    }
 }
 
-@media(max-width: 769px){
-	.modal-content{
-		flex-direction: column;
-		max-height: 80%;
-		overflow-x: auto;
-	}
+@media(max-width: 769px) {
+    .modal-content {
+        flex-direction: column;
+        max-height: 80%;
+        overflow-x: auto;
+    }
 
-	.modal-content img {
-		width: 70%; /* Лимит для картинки в модальном окне */
-		height: 500px;
-		margin: 0px auto;
-		margin-bottom: 10px;
-	}
+    .modal-content img {
+        width: 70%;
+        height: 500px;
+        margin: 0 auto 10px auto;
+    }
 
-	.modal-close {
-		color: red;
-	}
+    .modal-close {
+        color: red;
+    }
 }
 
-@media(max-width: 620px){
-	.main__content-reviews-item {
-		width: 100%;
-	}
+@media(max-width: 620px) {
+    .main__content-reviews-item {
+        width: 100%;
+    }
 }
 
-@media(max-width: 566px){
-	.modal-content img {
-		width: 90%; /* Лимит для картинки в модальном окне */
-		height: 500px;
-		margin: 0px auto;
-		margin-bottom: 10px;
-	}
+@media(max-width: 566px) {
+    .modal-content img {
+        width: 90%;
+        height: 500px;
+        margin: 0 auto 10px auto;
+    }
 }
 
-@media(max-width: 464px){
-	h1{
-		font-size: 24px;
-	}
+@media(max-width: 464px) {
+    h1 {
+        font-size: 24px;
+    }
 }

@@ -48,7 +48,7 @@ class ReviewsInfo(models.Model):
 
 	class Meta:
 		verbose_name = "Сервіс"
-		verbose_name_plural = "Відгуки Сервіс"
+		verbose_name_plural = "Відгуки Блок Додатковий Сервіс"
 
 class ReviewsItem(models.Model):
 	title = models.CharField(max_length=155, verbose_name="Назва компанії")
