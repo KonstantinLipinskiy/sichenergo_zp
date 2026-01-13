@@ -31,7 +31,7 @@ class DocumentsView(View):
 class ReviewsView(View):
 	def get(self, request):
 		items = ReviewsItem.objects.all()
-		inform = ReviewsInfo.objects.all()
+		inform = ReviewsInfo.objects.first()
 		context = {
 			"title": "Відгуки",
 			"items": items,
