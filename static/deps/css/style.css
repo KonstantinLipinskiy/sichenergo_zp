@@ -32,7 +32,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* выравнивание по левому краю */
     border: 1px solid #ccc;
     margin: 15px;
     padding: 10px;
@@ -58,11 +58,21 @@
     padding: 5px;
 }
 
+/* Подписи в блоке main__inform */
+.main__inform-text-region,
+.main__inform-text-title,
+.main__inform-text-date {
+    text-align: left;      /* выравнивание по левому краю */
+    font-size: 16px;       /* одинаковый размер шрифта */
+    color: #333;           /* единый цвет */
+    margin: 5px 0;         /* равные отступы */
+    font-weight: normal;   /* базовый вес */
+    font-style: normal;    /* убираем курсив */
+}
+
+/* Заголовок выделяем жирным */
 .main__inform-text-title {
-    font-size: 24px;
-    text-align: center;
-    margin: 5px;
-    font-style: italic;
+    font-weight: bold;
 }
 
 .main__inform-text-text {
@@ -328,8 +338,3 @@ h1 {
     }
 }
 
-@media(max-width: 426px){
-    .index-link {
-        width: 100%;
-    }
-}
