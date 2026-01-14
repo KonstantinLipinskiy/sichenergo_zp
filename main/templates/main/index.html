@@ -16,7 +16,7 @@
                 <div class="main__row">
                     <!-- Блок последней новости -->
                     <div class="main__inform">
-                        <div class="main__inform-title">{{news.title}}</div>
+                        <div class="main__inform-title">ОСТАННІ ПОДІЇ</div>
                         <div class="main__inform-body">
                             <div class="main__inform-image">
                                 {% if news.content_type == 'image' %}
@@ -26,11 +26,18 @@
                                 {% endif %}
                             </div>
                             <div class="main__inform-text">
-                                <div class="main__inform-text-title">{{news.title}}</div>
-                                <div class="main__inform-text-text">{{news.content|linebreaks}}</div>
+                                <!-- Порядок: Регион → Заголовок → Дата -->
                                 <div class="main__inform-text-region">Регіон {{news.region}}</div>
-                                <div class="main__inform-text-heading">Рубрика "{{news.heading}}"</div>
+                                <div class="main__inform-text-title">{{news.title}}</div>
                                 <div class="main__inform-text-date">{{news.created_at|date:"d.m.Y"}}</div>
+
+                                <!-- Скрытый текст и рубрика для модалки -->
+                                <div class="main__inform-text-text" style="display:none;">
+                                    {{news.content|linebreaks}}
+                                </div>
+                                <div class="main__inform-text-heading" style="display:none;">
+                                    Рубрика "{{news.heading}}"
+                                </div>
                             </div>
                         </div>
                     </div>
