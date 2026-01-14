@@ -32,7 +32,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* выравнивание по левому краю */
+    align-items: flex-start;
     border: 1px solid #ccc;
     margin: 15px;
     padding: 10px;
@@ -51,13 +51,20 @@
     width: 100%;
 }
 
-.main__inform-image img,
-.main__inform-image video {
-    width: 100%;          /* растягиваем по ширине блока */
-    height: 400px;        /* фиксированная высота */
-    object-fit: cover;    /* заполняет блок */
+.main__inform-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;   /* картинка вписывается полностью */
     display: block;
-    background-color: #000; /* для видео и картинок с пустыми полями */
+    background-color: #000; /* фон для пустых полей */
+}
+
+.main__inform-image video {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;     /* видео заполняет блок */
+    display: block;
+    background-color: #000;
 }
 
 .main__inform-text {
@@ -65,7 +72,7 @@
     padding: 5px;
 }
 
-/* Подписи в блоке main__inform */
+/* Подписи */
 .main__inform-text-region,
 .main__inform-text-title,
 .main__inform-text-date {
@@ -82,7 +89,7 @@
 }
 
 .main__inform-text-text {
-    display: none; /* скрыто, но берётся в модалку */
+    display: none;
     padding: 15px;
 }
 
@@ -100,7 +107,7 @@
 
 /*----------------------------Модальное окно------------------------------*/
 .modal {
-    display: none; /* скрыто по умолчанию */
+    display: none;
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
@@ -131,8 +138,8 @@
     height: 500px;
     margin-right: 20px;
     border-radius: 6px;
-    object-fit: contain; /* вписывается по ширине и высоте */
-    background-color: #000; /* аккуратные поля при несоответствии пропорций */
+    object-fit: fill;     /* картинка заполняет блок */
+    background-color: #000;
 }
 
 .modal-content video {
@@ -140,7 +147,7 @@
     height: 500px;
     margin-right: 20px;
     border-radius: 6px;
-    object-fit: cover; /* видео заполняет блок */
+    object-fit: cover;
     background-color: #000;
 }
 
@@ -171,7 +178,7 @@
     text-justify: inter-word;
     hyphens: auto;
     overflow-wrap: break-word;
-    text-indent: 2em; /* абзацный отступ */
+    text-indent: 2em;
 }
 
 .modal-text-content p:last-child {
