@@ -54,7 +54,7 @@
 .main__inform-image video {
     width: 100%;
     height: 400px;
-    object-fit: cover;     /* заполняет блок по ширине и высоте */
+    object-fit: cover;
     display: block;
     background-color: #000;
 }
@@ -115,14 +115,13 @@
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* Картинка и видео в модалке — одинаковый размер блока */
 .modal-content img,
 .modal-content video {
     width: 50%;
     height: 500px;
     margin-right: 20px;
     border-radius: 6px;
-    object-fit: cover;     /* заполняет блок (может обрезать) */
+    object-fit: cover;
     background-color: #000;
 }
 
@@ -187,56 +186,81 @@
     background-color: #e5e5e5;
 }
 
-h1 {
+h1{
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-transform: uppercase;
+    margin: 0 0 20px 0;
     letter-spacing: 1.5px;
     word-spacing: 1px;
 }
 
-.main__content-items {
+.main__content-items{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
+/* Карточка-ссылка серии — как раньше */
 .trans-series {
     width: 40%;
     border: 1px solid #ccc;
     padding: 10px;
     margin: 20px 25px;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: block;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
 }
 
 .trans-series:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transform: scale(1.05); /* Увеличение блока при наведении */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Тень при наведении */
+}
+
+.trans-series .main__content-item h3,
+.trans-series .main__content-item h4 {
+    transition: transform 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+
+.trans-series:hover h3,
+.trans-series:hover h4 {
+    transform: scale(1.1); /* Увеличение текста h3 и h4 */
 }
 
 .trans-series:active {
-    transform: scale(0.95);
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    transform: scale(0.95); /* Эффект вдавливания при нажатии */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Уменьшение тени при нажатии */
 }
 
-.main__conten-item-image img {
+/* Изображение — исправленный класс */
+.main__content-item-image img{
     width: 100%;
-    height: 300px;
+    height: 300px; /* Увеличенная высота для всех картинок */
     object-fit: cover;
 }
 
-.main__content-item-sries {
+/* Заголовок серии — исправленный класс */
+.main__content-item-series {
     font-size: 18px;
     text-align: center;
     margin: 10px 0;
     color: #000;
     padding: 10px;
+    font-weight: 700;
+}
+
+h3{
+    font-weight: 525;
+    font-style: italic;
+}
+
+h4{
     font-weight: 700;
 }
 
@@ -252,18 +276,50 @@ h1 {
 
 /*-----------Адаптивная вёрстка----------------*/
 @media(max-width: 1025px){
-    .main__row {
+    .main__row{
         flex-direction: column;
     }
-    .main__inform {
+
+    .main__inform{
         order: 2;
         width: 90%;
         margin: 0 auto;
     }
-    .main__content {
+
+    .main__content{
         order: 1;
         width: 90%;
         margin: 0 auto;
+    }
+
+    .transformers-image{
+        width: 90%;
+    }
+}
+
+@media(max-width: 983px){
+    .main__content-item-series {
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 891px){
+    .main__content-item-series {
+        font-size: 14px;
+    }
+
+    .main__content-item-detail {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 801px){
+    .main__content-item-series {
+        font-size: 13px;
+    }
+
+    .main__content-item-detail {
+        font-size: 13px;
     }
 }
 
@@ -296,17 +352,26 @@ h1 {
     .trans-series {
         width: 90%;
     }
-    .main__conten-item-image img {
+
+    .main__content-item-image img{
+        width: 100%;
         height: auto;
     }
-    .main__content-item-sries {
+
+    .main__content-item-series {
         font-size: 18px;
     }
+
     .main__content-item-detail {
         font-size: 16px;
     }
+
+    .main__inform-text-title {
+        font-size: 18px;
+    }
+
     .main__inform-title {
-        margin: 0 0 30px 0;
+        margin: 7px 0 30px 0;
     }
 }
 
