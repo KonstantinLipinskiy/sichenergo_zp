@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import InformKTP, InformTransform, TransformItem, TransformTm, TransformTmg, TransformTmz, TransformYZ
 from django.views import View
-from news.views import NewsItem
+from news.models import NewsItem
 
 class ProductsView(View):
 	def get(self, request):

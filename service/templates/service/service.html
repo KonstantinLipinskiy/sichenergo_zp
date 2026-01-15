@@ -2,72 +2,81 @@
 {% load static %}
 
 {% block css %}
-	<link rel="stylesheet" href="{% static 'deps/css/services/services.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/services/services.css' %}">
 {% endblock css %}
 
-<title>{{context}}</title>
+<title>{{title}}</title>
 </head>
 <body>
 {% block main %}
-	<main class="main">
-		<div class="container">
-			<div class="main__row">
-				<div class="main__inform">
-					<div class="main__inform-title">{{serviceinform.title}}</div>
-					<div class="main__inform-body">
-						<div class="main__inform-image">
-							<video autoplay muted loop playsinlin src="{{serviceinform.video.url}}"></video>
-						</div>
-						<div class="main__inform-text">
-							<div class="main__inform-text-title">
-								{{serviceinform.name}}
-							</div>
-							<div class="main__inform-text-text">
-								{{serviceinform.description}}
-							</div>
-							<div class="main__inform-text-deital">
-								<p>Детальніше</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="main__content">
-					<h1>Комплексне Обслуговування та Ремонт</h1>
-					<div class="main__content-services-image">
-						<img src="{% static 'deps/img/services/36. ТДТП-800010У2.jpg' %}" alt="Зображення">
-					</div>
-					<div class="main__content-services-text">
-						<p>Наша компанія пропонує повний спектр сервісних послуг для підтримки ефективності та надійності вашого електротехнічного обладнання. Завдяки багаторічному досвіду ми гарантуємо професійний підхід на всіх етапах обслуговування, від регулярної діагностики до повного відновлення.</p>
-						<h2>Ремонт</h2>
-						<p>Наші фахівці проводять якісний та оперативний ремонт трансформаторів і електротехнічних систем будь-якої складності. Ми використовуємо сучасне обладнання та оригінальні комплектуючі, що дозволяє виконувати роботи максимально ефективно і з довготривалим результатом. Наша команда оперативно реагує на запити, щоб ваші потужності залишались стабільними та працювали без перерв.</p>
-						<h2>Діагностика</h2>
-						<p>Своєчасна діагностика обладнання дозволяє виявити потенційні проблеми на ранніх стадіях. Ми пропонуємо регулярні обстеження та випробування, що дають змогу оцінити стан трансформаторів, електрощитових та інших систем. Це дозволяє запобігти аваріям та забезпечити стабільну роботу обладнання. Наша команда застосовує інноваційні методи діагностики, щоб зберегти працездатність вашого обладнання на високому рівні.</p>
-						<h2>Відновлення</h2>
-						<p>Крім ремонту та діагностики, ми надаємо послуги повного відновлення обладнання. Це включає відновлення окремих компонентів та оптимізацію робочих характеристик для збільшення строку служби техніки. Ми робимо все можливе, щоб ваше обладнання працювало як нове навіть після тривалого використання.</p>
-						<p>Ми завжди готові допомогти з обслуговуванням і вирішенням будь-яких технічних питань, щоб ваші виробничі процеси проходили без затримок і з максимальною ефективністю.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
+    <main class="main">
+        <div class="container">
+            <div class="main__row">
+                <!-- Блок новостей -->
+                <div class="main__inform">
+                    <div class="main__inform-title">ОСТАННІ ПОДІЇ</div>
+                    <div class="main__inform-body">
+                        <div class="main__inform-image">
+                            {% if news.content_type == 'image' %}
+                                <img src="{{news.content_file.url}}" alt="{{news.title}}">
+                            {% elif news.content_type == 'video' %}
+                                <video autoplay muted loop playsinline src="{{news.content_file.url}}"></video>
+                            {% endif %}
+                        </div>
+                        <div class="main__inform-text">
+                            <div class="main__inform-text-region">Регіон {{news.region}}</div>
+                            <div class="main__inform-text-title">{{news.title}}</div>
+                            <div class="main__inform-text-date">{{news.created_at|date:"d.m.Y"}}</div>
 
-	<!-- Модальное окно -->
-	<div class="modal">
-		<div class="modal-content">
-		<span class="modal-close">&times;</span>
-		<video class="modal-video" controls autoplay muted loop></video>
-		<div class="modal-text"></div>
-	</div>
-	</div>
+                            <!-- Скрытые поля для модалки -->
+                            <div class="main__inform-text-text" style="display:none;">
+                                {{news.content|linebreaks}}
+                            </div>
+                            <div class="main__inform-text-heading" style="display:none;">
+                                Рубрика "{{news.heading}}"
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-	<script>
-	function toggleMenu() {
-	const menu = document.querySelector('.menu');
-	menu.classList.toggle('active');
-	}
-	</script>
-	<script src="{% static 'deps/js/services.js' %}"></script>
-{% endblock  %}
-			
+                <!-- Блок контента (сервисы) -->
+                <div class="main__content">
+                    <h1>Комплексне Обслуговування та Ремонт</h1>
+                    <div class="main__content-services-image">
+                        <img src="{% static 'deps/img/services/36. ТДТП-800010У2.jpg' %}" alt="Зображення">
+                    </div>
+                    <div class="main__content-services-text">
+                        <p>Наша компанія пропонує повний спектр сервісних послуг для підтримки ефективності та надійності вашого електротехнічного обладнання. Завдяки багаторічному досвіду ми гарантуємо професійний підхід на всіх етапах обслуговування, від регулярної діагностики до повного відновлення.</p>
+                        <h2>Ремонт</h2>
+                        <p>Наші фахівці проводять якісний та оперативний ремонт трансформаторів і електротехнічних систем будь-якої складності. Ми використовуємо сучасне обладнання та оригінальні комплектуючі, що дозволяє виконувати роботи максимально ефективно і з довготривалим результатом. Наша команда оперативно реагує на запити, щоб ваші потужності залишались стабільними та працювали без перерв.</p>
+                        <h2>Діагностика</h2>
+                        <p>Своєчасна діагностика обладнання дозволяє виявити потенційні проблеми на ранніх стадіях. Ми пропонуємо регулярні обстеження та випробування, що дають змогу оцінити стан трансформаторів, електрощитових та інших систем. Це дозволяє запобігти аваріям та забезпечити стабільну роботу обладнання. Наша команда застосовує інноваційні методи діагностики, щоб зберегти працездатність вашого обладнання на високому рівні.</p>
+                        <h2>Відновлення</h2>
+                        <p>Крім ремонту та діагностики, ми надаємо послуги повного відновлення обладнання. Це включає відновлення окремих компонентів та оптимізацію робочих характеристик для збільшення строку служби техніки. Ми робимо все можливе, щоб ваше обладнання працювало як нове навіть після тривалого використання.</p>
+                        <p>Ми завжди готові допомогти з обслуговуванням і вирішенням будь-яких технічних питань, щоб ваші виробничі процеси проходили без затримок і з максимальною ефективністю.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно -->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img class="modal-image" src="" alt=""/>
+            <video autoplay muted loop playsinline class="modal-video" src="" controls></video>
+            <div class="modal-text"></div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+    <script src="{% static 'deps/js/news-index.js' %}"></script>
+{% endblock %}
 </body>
 </html>
