@@ -45,6 +45,10 @@
     transform: scale(1.04);
 }
 
+.main__inform-image {
+    width: 100%;
+}
+
 .main__inform-image img,
 .main__inform-image video {
     width: 100%;
