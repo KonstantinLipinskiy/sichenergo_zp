@@ -19,10 +19,10 @@ class AboutView(View):
 class DocumentsView(View):
 	def get(self, request):
 		items = DocumentsItem.objects.all()
-		inform = DocumentsInform.objects.all()
+		present = Presentation.objects.first()
 		context = {
 			"title": "Документи",
-			"inform": inform,
+			"present": present,
 			"items": items,
 		}
 
