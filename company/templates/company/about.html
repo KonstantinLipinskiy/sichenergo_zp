@@ -2,62 +2,85 @@
 {% load static %}
 
 {% block css %}
-	<link rel="stylesheet" href="{% static 'deps/css/company/about.css' %}">
-{% endblock %}
+    <link rel="stylesheet" href='{% static "deps/css/company/about.css" %}'>
+{% endblock css %}
 
-<title>{{context}}</title>
+{% block title %}
+    {{title}}
+{% endblock title %}
+
 <body>
-	{% block main %}
-		<main class="main">
-			<div class="container">
-				<div class="main__row">
-					<div class="main__inform">
-						<div class="main__inform-title">{{present.title}}</div>
-						<div class="main__inform-body">
-							<a href="{{present.file_present.url}}" download class="download-link">
-								<div class="main__inform-image">
-									<img class="main__inform-image" src="{{present.image.url}}" alt="Зображення">
-								</div>
-								<div class="main__inform-text">
-									<div class="main__inform-text-title">
-										{{present.description}}
-									</div>
-									<div class="main__inform-text-save">
-										<p>Скачати</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="main__content">
-						<h1>Хто ми та чим займаємось</h1>
-						<div class="main__content-about">
-							<div class="main__content-about-body">
-								<div class="main__content-about-image">
-									<img src="{% static 'deps/img/company/about/about.jpg' %}" alt="Зображення">
-								</div>
-								<div class="main__content-about-text">
-									<p> <a href="{% url 'main:index' %}" class="main__content-about-link">ТОВ ВТК «Січ Енерго»</a>  — це провідна українська компанія, яка спеціалізується на розробці, виробництві та постачанні силових трансформаторів та електрощитового обладнання. Ми пишаємося тим, що наша продукція активно використовується для забезпечення стабільного енергопостачання на підприємствах різних галузей: промислових, комунальних, аграрних та інших. Завдяки нашій експертній команді та інноваційним підходам, ми забезпечуємо високий рівень якості та надійності кожного виробу.</p>
-									<p>Основним напрямом нашої діяльності є виробництво <a href="{% url 'products:transformers' %}" class="main__content-about-link">силових масляних трансформаторів з класами напруги до 35 кВ і потужністю до 2500 кВА (ТМ, ТМГ, ТМЗ)</a>. Ми пропонуємо трансформатори різних типів для будь-яких потреб, від малих господарств до великих промислових комплексів. Окрім трансформаторів, ми також виготовляємо <a href="{% url 'products:ktp' %}" class="main__content-about-link">комплексні трансформаторні підстанції різних типів виконання, збірні камери одностороннього обслуговування (КСО) та інше електрощитове обладнання</a>. Всі наші вироби відповідають сучасним стандартам якості, що підтверджено сертифікатами та багаторічною репутацією надійного партнера.</p>
-									<p>Ми розуміємо важливість післяпродажного обслуговування та підтримки наших клієнтів, тому <a href="{% url 'service:service' %}" class="main__content-about-link">надаємо повний комплекс послуг з діагностики, капітального та поточного ремонту трансформаторів.</a> Наші фахівці здійснюють ретельну діагностику та обслуговування трансформаторного обладнання, що дозволяє продовжити термін його експлуатації та зберегти його продуктивність на високому рівні.</p>
-									<p>Ми прагнемо постійно вдосконалювати свої технологічні процеси, щоб відповідати вимогам сучасного ринку та потребам клієнтів. Ми активно впроваджуємо новітні технології у виробництво та використовуємо високоякісні матеріали, щоб наші трансформатори служили довго та надійно навіть в умовах важких навантажень. Завдяки цьому ми здобули довіру багатьох клієнтів, зокрема великих промислових і енергетичних компаній.</p>
-									<p>Наша місія — сприяти розвитку енергетичної інфраструктури України, забезпечуючи клієнтів ефективними та сучасними енергетичними рішеннями. Ми віримо, що стабільна та надійна енергетика є основою для розвитку економіки країни, і тому ми зосереджуємося на наданні продуктів та послуг найвищої якості. </p>
-									<p class="about__last-p">ТОВ ВТК «Січ Енерго» — ваш надійний партнер у світі енергетики!</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</main>
+    {% block main %}
+        <main class="main">
+            <div class="container">
+                <div class="main__row">
+                    <!-- Левый столбец: последняя новость -->
+                    <div class="main__inform">
+                        <div class="main__inform-title">ОСТАННІ ПОДІЇ</div>
+                        <div class="main__inform-body">
+                            <div class="main__inform-image">
+                                {% if news.content_type == 'image' %}
+                                    <img src="{{news.content_file.url}}" alt="{{news.title}}">
+                                {% elif news.content_type == 'video' %}
+                                    <video autoplay muted loop playsinline src="{{news.content_file.url}}"></video>
+                                {% endif %}
+                            </div>
+                            <div class="main__inform-text">
+                                <div class="main__inform-text-region">Регіон {{news.region}}</div>
+                                <div class="main__inform-text-title">{{news.title}}</div>
+                                <div class="main__inform-text-date">{{news.created_at|date:"d.m.Y"}}</div>
 
-		<script>
-		function toggleMenu() {
-			const menu = document.querySelector('.menu');
-			menu.classList.toggle('active');
-		}
-		</script>
-	{% endblock  %}
-			
+                                <!-- Скрытый текст и рубрика для модалки -->
+                                <div class="main__inform-text-text" style="display:none;">
+                                    {{news.content|linebreaks}}
+                                </div>
+                                <div class="main__inform-text-heading" style="display:none;">
+                                    Рубрика "{{news.heading}}"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Правый столбец: описание компании -->
+                    <div class="main__content">
+                        <h1>Хто ми та чим займаємось</h1>
+                        <div class="main__content-about">
+                            <div class="main__content-about-body">
+                                <div class="main__content-about-image">
+                                    <img src="{% static 'deps/img/company/about/about.jpg' %}" alt="Зображення">
+                                </div>
+                                <div class="main__content-about-text">
+                                    <p> <a href="{% url 'main:index' %}" class="main__content-about-link">ТОВ ВТК «Січ Енерго»</a>  — це провідна українська компанія, яка спеціалізується на розробці, виробництві та постачанні силових трансформаторів та електрощитового обладнання. Ми пишаємося тим, що наша продукція активно використовується для забезпечення стабільного енергопостачання на підприємствах різних галузей: промислових, комунальних, аграрних та інших. Завдяки нашій експертній команді та інноваційним підходам, ми забезпечуємо високий рівень якості та надійності кожного виробу.</p>
+                                    <p>Основним напрямом нашої діяльності є виробництво <a href="{% url 'products:transformers' %}" class="main__content-about-link">силових масляних трансформаторів з класами напруги до 35 кВ і потужністю до 2500 кВА (ТМ, ТМГ, ТМЗ)</a>. Ми пропонуємо трансформатори різних типів для будь-яких потреб, від малих господарств до великих промислових комплексів. Окрім трансформаторів, ми також виготовляємо <a href="{% url 'products:ktp' %}" class="main__content-about-link">комплексні трансформаторні підстанції різних типів виконання, збірні камери одностороннього обслуговування (КСО) та інше електрощитове обладнання</a>. Всі наші вироби відповідають сучасним стандартам якості, що підтверджено сертифікатами та багаторічною репутацією надійного партнера.</p>
+                                    <p>Ми розуміємо важливість післяпродажного обслуговування та підтримки наших клієнтів, тому <a href="{% url 'service:service' %}" class="main__content-about-link">надаємо повний комплекс послуг з діагностики, капітального та поточного ремонту трансформаторів.</a> Наші фахівці здійснюють ретельну діагностику та обслуговування трансформаторного обладнання, що дозволяє продовжити термін його експлуатації та зберегти його продуктивність на високому рівні.</p>
+                                    <p>Ми прагнемо постійно вдосконалювати свої технологічні процеси, щоб відповідати вимогам сучасного ринку та потребам клієнтів. Ми активно впроваджуємо новітні технології у виробництво та використовуємо високоякісні матеріали, щоб наші трансформатори служили довго та надійно навіть в умовах важких навантажень. Завдяки цьому ми здобули довіру багатьох клієнтів, зокрема великих промислових і енергетичних компаній.</p>
+                                    <p>Наша місія — сприяти розвитку енергетичної інфраструктури України, забезпечуючи клієнтів ефективними та сучасними енергетичними рішеннями. Ми віримо, що стабільна та надійна енергетика є основою для розвитку економіки країни, і тому ми зосереджуємося на наданні продуктів та послуг найвищої якості. </p>
+                                    <p class="about__last-p">ТОВ ВТК «Січ Енерго» — ваш надійний партнер у світі енергетики!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Модальное окно -->
+        <div class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <img class="modal-image" src="" alt=""/>
+                <video autoplay muted loop playsinline class="modal-video" src="" controls></video>
+                <div class="modal-text"></div>
+            </div>
+        </div>
+
+        <script>
+            function toggleMenu() {
+                const menu = document.querySelector('.menu');
+                menu.classList.toggle('active');
+            }
+        </script>
+        <script src='{% static "deps/js/news-index.js" %}'></script>
+    {% endblock main %}
 </body>
 </html>
