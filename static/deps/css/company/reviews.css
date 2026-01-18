@@ -251,6 +251,29 @@ h1 {
     text-align: center;
 }
 
+.pagination { 
+	text-align: center; 
+	margin: 20px 0; 
+} 
+
+.pagination a { 
+	margin: 0 10px; 
+	padding: 5px 10px; 
+	border: 1px solid #ccc; 
+	background: #fff; 
+	text-decoration: none; 
+	transition: background 0.3s; 
+	color: #000; 
+} 
+
+.pagination a:hover { 
+	background: #eee; 
+} 
+
+.pagination span { 
+	font-weight: bold; 
+}
+
 /*--------------Адаптивная вёрстка---------------*/
 
 @media(max-width: 1025px) {

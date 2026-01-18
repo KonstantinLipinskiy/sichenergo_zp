@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import DocumentsInform, DocumentsItem, Presentation, ReviewsInfo, ReviewsItem
 from django.views import View
 from news.models import NewsItem
+from django.core.paginator import Paginator
 
 class CompanyView(View):
 	def get(self, request):
@@ -32,10 +33,14 @@ class DocumentsView(View):
 class ReviewsView(View):
 	def get(self, request):
 		items = ReviewsItem.objects.all()
+		paginator = Paginator(items, 2)
+		page_number = request.GET.get("page")
+		page_obj = paginator.get_page(page_number)
 		inform = ReviewsInfo.objects.first()
 		context = {
 			"title": "Відгуки",
 			"items": items,
+			"page_obj": page_obj,
 			"inform": inform,
 		}
 

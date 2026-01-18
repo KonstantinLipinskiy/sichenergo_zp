@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 class NewsView(View):
 	def get(self, request):
 		news_items = NewsItem.objects.all()
-		paginator = Paginator(news_items, 12)
+		paginator = Paginator(news_items, 2)
 		page_number = request.GET.get("page")
 		page_obj = paginator.get_page(page_number)
 		context = {
