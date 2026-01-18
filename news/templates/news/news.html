@@ -2,62 +2,75 @@
 {% load static %}
 
 {% block css %}
-	<link rel="stylesheet" href="{% static 'deps/css/news/news.css' %}">
-{% endblock  %}
-<title>{{context}}</title>
+    <link rel="stylesheet" href="{% static 'deps/css/news/news.css' %}">
+{% endblock %}
+<title>{{title}}</title>
 <body>
-	{% block main %}
-		<main class="main">
-			<div class="container">
-				<div class="main__row">
-					<div class="main__content">
-						<h1>Новини та оновлення</h1>
-						<div class="main__news-row">
-							<div class="main__news-items">
-								{% for news_item in news_items %}
-									<div class="main__news-item">
-										{% if news_item.content_type == 'image' %}
-											<div class="main__news-item-image">
-												<img src="{{ news_item.content_file.url }}" alt="{{ news_item.title }}">
-											</div>
-										{% elif news_item.content_type == 'video' %}
-											<div class="main__news-item-image">
-												<video autoplay muted loop playsinline src="{{ news_item.content_file.url }}"></video>
-											</div>
-										{% endif %}
-										<div class="main__news-item-text">
-											{{ news_item.content|linebreaks}}
-										</div>
-										<div class="main__news-item-region">Регіон {{ news_item.region }}</div>
-										<div class="main__news-item-name">{{ news_item.title }}</div>
-										<div class="main__news-item-heading">Рубрика "{{ news_item.heading }}"</div>
-										{{ news_item.created_at|date:"d.m.Y" }}
-									</div>
-								{% endfor %}
-							</div>
-						</div>
-					</div>
-				</div>
+    {% block main %}
+        <main class="main">
+            <div class="container">
+                <div class="main__row">
+                    <div class="main__content">
+                        <h1>Новини та оновлення</h1>
+                        <div class="main__news-row">
+                            <div class="main__news-items">
+                                {% for news_item in page_obj %}
+                                    <div class="main__news-item">
+                                        {% if news_item.content_type == 'image' %}
+                                            <div class="main__news-item-image">
+                                                <img src="{{ news_item.content_file.url }}" alt="{{ news_item.title }}">
+                                            </div>
+                                        {% elif news_item.content_type == 'video' %}
+                                            <div class="main__news-item-image">
+                                                <video autoplay muted loop playsinline src="{{ news_item.content_file.url }}"></video>
+                                            </div>
+                                        {% endif %}
+                                        <div class="main__news-item-text">
+                                            {{ news_item.content|linebreaks }}
+                                        </div>
+                                        <div class="main__news-item-region">Регіон {{ news_item.region }}</div>
+                                        <div class="main__news-item-name">{{ news_item.title }}</div>
+                                        <div class="main__news-item-heading">Рубрика "{{ news_item.heading }}"</div>
+                                        <div class="main__news-item-date">{{ news_item.created_at|date:"d.m.Y" }}</div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
 
-				<!-- Модальное окно -->
-				<div class="modal">
-					<div class="modal-content">
-						<span class="modal-close">&times;</span>
-						<img class="modal-image" src="" alt=""/>
-						<video autoplay muted loop playsinlin class="modal-video" src="" controls></video>
-						<div class="modal-text"></div>
-					</div>
-				</div>
+                        <!-- Пагинация -->
+                        <div class="pagination">
+                            {% if page_obj.has_previous %}
+                                <a href="?page={{ page_obj.previous_page_number }}">« Назад</a>
+                            {% endif %}
 
-				<script>
-					function toggleMenu() {
-						const menu = document.querySelector('.menu');
-						menu.classList.toggle('active');
-					}
-				</script>
-				<script src="{% static 'deps/js/news-news.js' %}"></script>
-						
-			</div>
-		</main>
-	{% endblock main %}
+                            <span>Сторінка {{ page_obj.number }} із {{ page_obj.paginator.num_pages }}</span>
+
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}">Вперед »</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Модальное окно -->
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="modal-close">&times;</span>
+                        <img class="modal-image" src="" alt=""/>
+                        <video autoplay muted loop playsinline class="modal-video" src="" controls></video>
+                        <div class="modal-text"></div>
+                    </div>
+                </div>
+
+                <script>
+                    function toggleMenu() {
+                        const menu = document.querySelector('.menu');
+                        menu.classList.toggle('active');
+                    }
+                </script>
+                <script src="{% static 'deps/js/news-news.js' %}"></script>
+            </div>
+        </main>
+    {% endblock main %}
 </body>
+</html>
