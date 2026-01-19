@@ -33,7 +33,7 @@ class DocumentsView(View):
 class ReviewsView(View):
 	def get(self, request):
 		items = ReviewsItem.objects.all()
-		paginator = Paginator(items, 2)
+		paginator = Paginator(items, 9)
 		page_number = request.GET.get("page")
 		page_obj = paginator.get_page(page_number)
 		inform = ReviewsInfo.objects.first()
