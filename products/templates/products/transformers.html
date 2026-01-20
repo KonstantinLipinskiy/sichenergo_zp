@@ -80,7 +80,22 @@
             <span class="modal-close">&times;</span>
             <img class="modal-image" src="" alt=""/>
             <video autoplay muted loop playsinline class="modal-video" src="" controls></video>
-            <div class="modal-text"></div>
+
+            <div class="modal-text">
+                <!-- Заголовок -->
+                <div class="modal-title">{{news.title}}</div>
+
+                <!-- Основной текст -->
+                <div class="modal-text-content">
+                    {{news.content|linebreaks}}
+                </div>
+
+                <!-- Дополнительные подписи -->
+                <div class="modal-region">Регіон: {{news.region}}</div>
+                <div class="modal-heading">Рубрика: {{news.heading}}</div>
+                <div class="modal-date">Дата: {{news.created_at|date:"d.m.Y"}}</div>
+                <div class="modal-name">Автор: Січ Енерго</div>
+            </div>
         </div>
     </div>
 
