@@ -26,6 +26,6 @@ class NewsViewTest(TestCase):
 	def test_news_view_context(self):
 		url = reverse("news:news")
 		response = self.client.get(url)
-		self.assertIn("news_items", response.content)
-		self.assertEqual(response.content['title'], 'Новини')
-		self.assertEqual(response.content['news_items'], 1)
+		self.assertIn("news_items", response.context)
+		self.assertEqual(response.context['title'], 'Новини')
+		self.assertEqual(len(response.context['news_items']), 1)
