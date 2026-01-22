@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import DocumentsInform, DocumentsItem, Presentation, ReviewsInfo, ReviewsItem
+from .models import DocumentsItem, Presentation, ReviewsInfo, ReviewsItem
 from django.views import View
 from news.models import NewsItem
 from django.core.paginator import Paginator

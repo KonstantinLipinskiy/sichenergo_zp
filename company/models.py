@@ -13,19 +13,6 @@ class Presentation(models.Model):
 		verbose_name = "Презентацію"
 		verbose_name_plural = "Презентація"
 
-class DocumentsInform(models.Model):
-	title = models.CharField(max_length=155, verbose_name="Останні події")
-	image = models.ImageField(upload_to='company/',verbose_name="Зображення")
-	name = models.CharField(max_length=155, verbose_name="Короткий опис")
-	description = models.TextField(verbose_name="Опис")
-
-	def __str__(self):
-		return self.title
-
-	class Meta:
-		verbose_name = "Подію"
-		verbose_name_plural = "Документи події"
-
 class DocumentsItem(models.Model):
 	title = models.CharField(max_length=155, verbose_name="Найменування")
 	image = models.ImageField(upload_to='company/', verbose_name="Зображення")
