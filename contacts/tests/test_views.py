@@ -18,19 +18,11 @@ class ContactsViewTest(TestCase):
 			map_url='https://maps.google.com/?q=Kyiv'
 		)
 
-	def test_contacts_status_code(self):
+	def test_contacts_get(self):
 		url = reverse('contacts:contacts')
 		response = self.client.get(url)
 		self.assertEqual(response.status_code, 200)
-
-	def test_contacts_templates(self):
-		url = reverse('contacts:contacts')
-		response = self.client.get(url)
 		self.assertTemplateUsed(response, 'contacts/contacts.html')
-
-	def test_contacts_context(self):
-		url = reverse('contacts:contacts')
-		response = self.client.get(url)
 		self.assertIn("contact", response.context)
 		self.assertIn("location", response.context)
 		self.assertEqual(response.context["title"], "Контакти")
