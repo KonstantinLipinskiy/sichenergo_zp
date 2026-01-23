@@ -19,19 +19,11 @@ class ModelItemTest(TestCase):
 			heading="Енергетика"
 		)
 
-	def test_main_status_code(self):
+	def test_main_get(self):
 		url = reverse("main:index")
 		response = self.client.get(url)
 		self.assertEqual(response.status_code, 200)
-
-	def test_main_templates(self):
-		url = reverse("main:index")
-		response = self.client.get(url)
 		self.assertTemplateUsed(response, 'main/index.html')
-
-	def test_main_context(self):
-		url = reverse("main:index")
-		response = self.client.get(url)
 		self.assertIn("items", response.context)
 		self.assertIn("news", response.context)
 		self.assertEqual(response.context['title'], "Головна")
