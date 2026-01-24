@@ -1,8 +1,9 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class ServiceInform(models.Model):
 	title = models.CharField(max_length=155, blank=True, null=True, verbose_name="Заголовок")
-	video = models.FileField(upload_to='videos/service/', blank=True, null=True, verbose_name="Відео")
+	video = CloudinaryField(resource_type="video", blank=True, null=True, verbose_name="Відео")
 	name = models.CharField(max_length=155, blank=True, null=True, verbose_name="Назва події")
 	description = models.TextField(blank=True, null=True, verbose_name="Опис")
 

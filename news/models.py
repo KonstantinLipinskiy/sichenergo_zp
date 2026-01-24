@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 	
 CONTENT_TYPE_CHOICES = [
 	('image', 'Зображення'),
@@ -9,7 +10,7 @@ class NewsItem(models.Model):
 	title = models.CharField(max_length=155, verbose_name="Заголовок")
 	content = models.TextField(verbose_name="Текст")
 	content_type = models.CharField(max_length=10, choices=CONTENT_TYPE_CHOICES, verbose_name="Тип контенту")
-	content_file = models.FileField(upload_to='news/', verbose_name='Файл контента')
+	content_file = CloudinaryField(resource_type='auto', verbose_name='Файл контента')
 	region = models.CharField(max_length=155, verbose_name="Регіон")
 	heading = models.CharField(max_length=155, verbose_name="Рубрика")
 	created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата створення")

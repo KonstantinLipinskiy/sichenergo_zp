@@ -1,8 +1,9 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class TransformItem(models.Model):
 	name = models.CharField(max_length=150, verbose_name="Серія")
-	image = models.ImageField(upload_to='transform/item/' ,verbose_name="Зображення")
+	image = CloudinaryField(verbose_name="Зображення")
 	detail_url = models.URLField(blank=True, null=True, verbose_name="Посилання")
 
 	def __str__(self):
@@ -14,7 +15,7 @@ class TransformItem(models.Model):
 
 class InformTransform(models.Model):
 	title = models.CharField(max_length=150, verbose_name="Трансформатор (опитовий лист)")
-	video = models.FileField(upload_to='videos/', blank=True, null=True, verbose_name='Відео')
+	video = CloudinaryField(resource_type="video", blank=True, null=True, verbose_name='Відео')
 	description = models.TextField(verbose_name="Опис", blank=True)
 	file_ol = models.FileField(upload_to='transform/ol/', verbose_name='Файл для скачування')
 
@@ -27,8 +28,8 @@ class InformTransform(models.Model):
 
 class TransformTm(models.Model):
 	name = models.CharField(max_length=150, verbose_name="Потужність трансформаторів ТМ та ТМЖ")
-	image = models.ImageField(upload_to='transform/tm/' ,verbose_name="Зображення")
-	file_tm = models.FileField(upload_to='transform/file/tm/',verbose_name="Скачати креслення трансформаторів ТМ та ТМЖ")
+	image = CloudinaryField(verbose_name="Зображення")
+	file_tm = CloudinaryField(resource_type="raw",verbose_name="Скачати креслення трансформаторів ТМ та ТМЖ")
 
 	def __str__(self):
 		return self.name
@@ -39,8 +40,8 @@ class TransformTm(models.Model):
 
 class TransformTmg(models.Model):
 	name = models.CharField(max_length=150, verbose_name="Потужність трансформаторів ТМГ та ТМЖ")
-	image = models.ImageField(upload_to='transform/tmg/' ,verbose_name="Зображення")
-	file_tmg = models.FileField(upload_to='transform/file/tmg/',verbose_name="Скачати креслення трансформаторів ТМГ та ТМЖ")
+	image = CloudinaryField(verbose_name="Зображення")
+	file_tmg = CloudinaryField(resource_type="raw",verbose_name="Скачати креслення трансформаторів ТМГ та ТМЖ")
 
 	def __str__(self):
 		return self.name
@@ -51,8 +52,8 @@ class TransformTmg(models.Model):
 
 class TransformTmz(models.Model):
 	name = models.CharField(max_length=150, verbose_name="Трансформатори ТМЗ")
-	image = models.ImageField(upload_to='transform/tmz/',verbose_name="Зображення")
-	file_tmz = models.FileField(upload_to='transform/file/tmz/',verbose_name="Скачати креслення трансформаторів ТМЗ")
+	image = CloudinaryField(verbose_name="Зображення")
+	file_tmz = CloudinaryField(resource_type="raw", verbose_name="Скачати креслення трансформаторів ТМЗ")
 
 	def __str__(self):
 		return self.name
@@ -63,8 +64,8 @@ class TransformTmz(models.Model):
 
 class TransformYZ(models.Model):
 	name = models.CharField(max_length=150, verbose_name="Трансформатори серії Y/Z")
-	image = models.ImageField(upload_to='transform/yz/',verbose_name="Зображення")
-	file_yz = models.FileField(upload_to='transform/file/yz/',verbose_name="Скачати креслення трансформаторів Y/Z")
+	image = CloudinaryField(verbose_name="Зображення")
+	file_yz = CloudinaryField(resource_type="raw",verbose_name="Скачати креслення трансформаторів Y/Z")
 
 	def __str__(self):
 		return self.name
@@ -75,9 +76,9 @@ class TransformYZ(models.Model):
 
 class InformKTP(models.Model):
 	title = models.CharField(max_length=150, verbose_name="КТП (опитовий лист)")
-	video = models.FileField(upload_to="videos/", blank=True, null=True, verbose_name="Відео")
+	video = CloudinaryField(resource_type="video", blank=True, null=True, verbose_name="Відео")
 	description = models.TextField(verbose_name="Опис", blank=True)
-	file_ol = models.FileField(upload_to='ktp/ol/',verbose_name="Файл для скачування")
+	file_ol = CloudinaryField(resource_type="raw", verbose_name="Файл для скачування")
 
 	def __str__(self):
 		return self.title
