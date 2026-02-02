@@ -5,15 +5,16 @@ from news.models import NewsItem
 from django.core.files.uploadedfile import SimpleUploadedFile
 from unittest.mock import patch
 
-
-class ProductsViewTest(TestCase):
-	def setUp(self):
-		patcher1 = patch("cloudinary.uploader.upload_resource") 
-		patcher2 = patch("cloudinary.uploader.upload") 
-		self.mock_upload_resource = patcher1.start() 
-		self.mock_upload = patcher2.start() 
-		self.mock_upload_resource.return_value = "fakefile"
-		self.mock_upload.return_value = { 
+class CloudinaryMockedTest(TestCase): 
+	@classmethod 
+	def setUpClass(cls): 
+		super().setUpClass() 
+		cls.patcher_upload_resource = patch("cloudinary.uploader.upload_resource") 
+		cls.patcher_upload = patch("cloudinary.uploader.upload") 
+		cls.mock_upload_resource = cls.patcher_upload_resource.start() 
+		cls.mock_upload = cls.patcher_upload.start() 
+		cls.mock_upload_resource.return_value = "fakefile" 
+		cls.mock_upload.return_value = { 
 			"public_id": "fakefile", 
 			"version": "1234567890", 
 			"format": "jpg", 
@@ -22,9 +23,15 @@ class ProductsViewTest(TestCase):
 			"url": "http://example.com/fakefile.jpg", 
 			"secure_url": "https://example.com/fakefile.jpg" 
 			} 
-		self.addCleanup(patcher1.stop) 
-		self.addCleanup(patcher2.stop)
+			
+		@classmethod 
+		def tearDownClass(cls): 
+			cls.patcher_upload_resource.stop() 
+			cls.patcher_upload.stop() 
+			super().tearDownClass()
 
+class ProductsViewTest(CloudinaryMockedTest):
+	def setUp(self):
 		TransformItem.objects.create(
 			name="Трансформатор тест",
 			image=SimpleUploadedFile('test.jpg', b'file_content', content_type='image/jpeg')
@@ -47,25 +54,8 @@ class ProductsViewTest(TestCase):
 		self.assertIn("news", response.context)
 		self.assertEqual(response.context["title"], "Трансформатори")
 
-class TransformersTmViewTest(TestCase):
+class TransformersTmViewTest(CloudinaryMockedTest):
 	def setUp(self):
-		patcher1 = patch("cloudinary.uploader.upload_resource") 
-		patcher2 = patch("cloudinary.uploader.upload") 
-		self.mock_upload_resource = patcher1.start() 
-		self.mock_upload = patcher2.start() 
-		self.mock_upload_resource.return_value = "fakefile"
-		self.mock_upload.return_value = { 
-			"public_id": "fakefile", 
-			"version": "1234567890", 
-			"format": "jpg", 
-			"resource_type": "image", 
-			"type": "upload", 
-			"url": "http://example.com/fakefile.jpg", 
-			"secure_url": "https://example.com/fakefile.jpg" 
-			} 
-		self.addCleanup(patcher1.stop) 
-		self.addCleanup(patcher2.stop)
-
 		TransformTm.objects.create(
 			name="Трансформатор ТМ Тест",
 			image=SimpleUploadedFile("test.jpg", b"file_content", content_type="image/jpeg"),
@@ -87,25 +77,8 @@ class TransformersTmViewTest(TestCase):
 		self.assertIn("inform", response.context)
 		self.assertEqual(response.context["title"], "ТМ та ТМЖ")
 
-class TransformTmgViewTest(TestCase):
+class TransformTmgViewTest(CloudinaryMockedTest):
 	def setUp(self):
-		patcher1 = patch("cloudinary.uploader.upload_resource") 
-		patcher2 = patch("cloudinary.uploader.upload") 
-		self.mock_upload_resource = patcher1.start() 
-		self.mock_upload = patcher2.start() 
-		self.mock_upload_resource.return_value = "fakefile"
-		self.mock_upload.return_value = { 
-			"public_id": "fakefile", 
-			"version": "1234567890", 
-			"format": "jpg", 
-			"resource_type": "image", 
-			"type": "upload", 
-			"url": "http://example.com/fakefile.jpg", 
-			"secure_url": "https://example.com/fakefile.jpg" 
-			} 
-		self.addCleanup(patcher1.stop) 
-		self.addCleanup(patcher2.stop)
-
 		TransformTmg.objects.create(
 			name="Трансформатор ТМГ Тест",
 			image=SimpleUploadedFile("test.jpg", b"file_content", content_type="image/jpeg"),
@@ -127,25 +100,8 @@ class TransformTmgViewTest(TestCase):
 		self.assertIn("inform", response.context)
 		self.assertEqual(response.context["title"], "ТМГ та ТМЖГ")
 
-class TransformTmzViewTest(TestCase):
+class TransformTmzViewTest(CloudinaryMockedTest):
 	def setUp(self):
-		patcher1 = patch("cloudinary.uploader.upload_resource") 
-		patcher2 = patch("cloudinary.uploader.upload") 
-		self.mock_upload_resource = patcher1.start() 
-		self.mock_upload = patcher2.start() 
-		self.mock_upload_resource.return_value = "fakefile"
-		self.mock_upload.return_value = { 
-			"public_id": "fakefile", 
-			"version": "1234567890", 
-			"format": "jpg", 
-			"resource_type": "image", 
-			"type": "upload", 
-			"url": "http://example.com/fakefile.jpg", 
-			"secure_url": "https://example.com/fakefile.jpg" 
-			} 
-		self.addCleanup(patcher1.stop) 
-		self.addCleanup(patcher2.stop)
-
 		TransformTmz.objects.create(
 			name="Трансформатор ТМЗ Тест",
 			image=SimpleUploadedFile("test.jpg", b"file_content", content_type="image/jpeg"),
@@ -167,25 +123,8 @@ class TransformTmzViewTest(TestCase):
 		self.assertIn("inform", response.context)
 		self.assertEqual(response.context["title"], "ТМЗ")
 
-class TransformersYzViewTest(TestCase):
+class TransformersYzViewTest(CloudinaryMockedTest):
 	def setUp(self):
-		patcher1 = patch("cloudinary.uploader.upload_resource") 
-		patcher2 = patch("cloudinary.uploader.upload") 
-		self.mock_upload_resource = patcher1.start() 
-		self.mock_upload = patcher2.start() 
-		self.mock_upload_resource.return_value = "fakefile"
-		self.mock_upload.return_value = { 
-			"public_id": "fakefile", 
-			"version": "1234567890", 
-			"format": "jpg", 
-			"resource_type": "image", 
-			"type": "upload", 
-			"url": "http://example.com/fakefile.jpg", 
-			"secure_url": "https://example.com/fakefile.jpg" 
-			} 
-		self.addCleanup(patcher1.stop) 
-		self.addCleanup(patcher2.stop)
-
 		TransformYZ.objects.create(
 			name="Трансформатор YZ Тест",
 			image=SimpleUploadedFile("test.jpg", b"file_content", content_type="image/jpeg"),
@@ -207,25 +146,8 @@ class TransformersYzViewTest(TestCase):
 		self.assertIn("inform", response.context)
 		self.assertEqual(response.context["title"], "Y/Z")
 
-class KtpViewTest(TestCase):
+class KtpViewTest(CloudinaryMockedTest):
 	def setUp(self):
-		patcher1 = patch("cloudinary.uploader.upload_resource") 
-		patcher2 = patch("cloudinary.uploader.upload") 
-		self.mock_upload_resource = patcher1.start() 
-		self.mock_upload = patcher2.start() 
-		self.mock_upload_resource.return_value = "fakefile"
-		self.mock_upload.return_value = { 
-			"public_id": "fakefile", 
-			"version": "1234567890", 
-			"format": "jpg", 
-			"resource_type": "image", 
-			"type": "upload", 
-			"url": "http://example.com/fakefile.jpg", 
-			"secure_url": "https://example.com/fakefile.jpg" 
-			} 
-		self.addCleanup(patcher1.stop) 
-		self.addCleanup(patcher2.stop)
-
 		InformKTP.objects.create(
 			title="Ол Тест",
 			description="Опис Тест",
