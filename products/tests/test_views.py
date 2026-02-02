@@ -30,6 +30,17 @@ class CloudinaryMockedTest(TestCase):
 			cls.patcher_upload.stop() 
 			super().tearDownClass()
 
+class CloudinaryMockedTest(CloudinaryMockedTest):
+	def create_inform_transform(self, **kwargs):
+		defaults = {
+			"title": "Скачати ОЛ Тест",
+			"description": "Опис Тест",
+			"video": "video",
+			"file_ol": SimpleUploadedFile("test.pdf", b"pdf_content", content_type="application/pdf")
+		}
+		defaults.update(kwargs)
+		return InformTransform.objects.create(**defaults)
+
 class ProductsViewTest(CloudinaryMockedTest):
 	def setUp(self):
 		TransformItem.objects.create(
@@ -61,12 +72,7 @@ class TransformersTmViewTest(CloudinaryMockedTest):
 			image=SimpleUploadedFile("test.jpg", b"file_content", content_type="image/jpeg"),
 			file_tm=SimpleUploadedFile("test.pdf", b"pdf_content", content_type="application/pdf")
 		)
-		InformTransform.objects.create(
-			title="Скачати ОЛ Тест",
-			description="Опис Тест",
-			video="video",
-			file_ol=SimpleUploadedFile("test.jpg", b"pdf_content", content_type="application/pdf")
-		)
+		self.create_inform_transform()
 
 	def test_transformers_tm(self):
 		url = reverse("products:tm")
@@ -84,12 +90,7 @@ class TransformTmgViewTest(CloudinaryMockedTest):
 			image=SimpleUploadedFile("test.jpg", b"file_content", content_type="image/jpeg"),
 			file_tmg=SimpleUploadedFile("test.pdf", b"pdf_content", content_type="application/pdf")
 		)
-		InformTransform.objects.create(
-			title="Скачати ОЛ Тест",
-			description="Опис Тест",
-			video="video",
-			file_ol=SimpleUploadedFile("test.pdf", b"pdf_content", content_type="application/pdf")
-		)
+		self.create_inform_transform()
 	
 	def test_transform_tmg(self):
 		url = reverse("products:tmg")
@@ -107,12 +108,7 @@ class TransformTmzViewTest(CloudinaryMockedTest):
 			image=SimpleUploadedFile("test.jpg", b"file_content", content_type="image/jpeg"),
 			file_tmz=SimpleUploadedFile("test.pdf", b"pdf_content", content_type="application/pdf")
 		)
-		InformTransform.objects.create(
-			title="Скачати ОЛ Тест",
-			description="Опис Тест",
-			video="video",
-			file_ol=SimpleUploadedFile("test.pdf", b"pdf_content", content_type="application/pdf")
-		)
+		self.create_inform_transform()
 
 	def test_transform_tmz(self):
 		url = reverse("products:tmz")
@@ -130,12 +126,7 @@ class TransformersYzViewTest(CloudinaryMockedTest):
 			image=SimpleUploadedFile("test.jpg", b"file_content", content_type="image/jpeg"),
 			file_yz=SimpleUploadedFile("test.pdf", b"pdf_content", content_type="application/pdf")
 		)
-		InformTransform.objects.create(
-			title="Скачати ОЛ Тест",
-			description="Опис Тест",
-			video="video",
-			file_ol=SimpleUploadedFile("test.pdf", b"pdf_content", content_type="application/pdf")
-		)
+		self.create_inform_transform()
 
 	def test_transform_yz_get(self):
 		url=reverse("products:yz")
