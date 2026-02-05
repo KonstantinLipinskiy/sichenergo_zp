@@ -9,6 +9,7 @@
 - CSS
 - Amazon Web Services (AWS)
 - CI/CD
+- Nginx
 - Cloudinary
 - PostgreSQL
 
