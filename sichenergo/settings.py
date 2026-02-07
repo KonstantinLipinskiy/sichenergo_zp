@@ -189,11 +189,9 @@ LOGGING = {
 	},
 }
 
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": os.getenv("CLOUD_NAME"),
-    "API_KEY": os.getenv("API_KEY"),
-    "API_SECRET": os.getenv("API_SECRET"),
-}
+CLOUD_NAME = os.getenv("CLOUD_NAME") 
+API_KEY = os.getenv("API_KEY") 
+API_SECRET = os.getenv("API_SECRET")
 
 if not CLOUD_NAME or not API_KEY or not API_SECRET:
     # Для CI — фиктивные значения
@@ -201,15 +199,21 @@ if not CLOUD_NAME or not API_KEY or not API_SECRET:
     API_KEY = "123456"
     API_SECRET = "abcdef"
 
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": CLOUD_NAME,
+    "API_KEY": API_KEY,
+    "API_SECRET": API_SECRET,
+}
 
-CLOUDINARY_SECURE=True
+CLOUDINARY_SECURE = True
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 import cloudinary
 
 cloudinary.config(
-    cloud_name=os.getenv("CLOUD_NAME"),
-    api_key=os.getenv("API_KEY"),
-    api_secret=os.getenv("API_SECRET"),
+    cloud_name=CLOUD_NAME,
+    api_key=API_KEY,
+    api_secret=API_SECRET,
     secure=True
 )
+
