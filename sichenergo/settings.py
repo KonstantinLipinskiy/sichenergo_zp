@@ -195,6 +195,13 @@ CLOUDINARY_STORAGE = {
     "API_SECRET": os.getenv("API_SECRET"),
 }
 
+if not CLOUD_NAME or not API_KEY or not API_SECRET:
+    # Для CI — фиктивные значения
+    CLOUD_NAME = "demo"
+    API_KEY = "123456"
+    API_SECRET = "abcdef"
+
+
 CLOUDINARY_SECURE=True
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
