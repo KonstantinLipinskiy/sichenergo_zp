@@ -26,6 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("SECRET_KEY")
 
+if not SECRET_KEY: # Для CI или тестов — fallback 
+	SECRET_KEY = "test-secret-key-for-ci"
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
