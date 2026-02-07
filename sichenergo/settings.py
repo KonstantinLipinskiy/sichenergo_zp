@@ -88,16 +88,29 @@ WSGI_APPLICATION = 'sichenergo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("POSTGRES_DB"),
-        "USER": os.getenv("POSTGRES_USER"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
-        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
-        "PORT": os.getenv("POSTGRES_PORT", "5432"),
+CI = os.environ.get("CI") == "true"
+
+if CI:
+    # Для GitHub Actions используем SQLite
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
-}
+else:
+    # Для сервера и локальной разработки — PostgreSQL
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.getenv("POSTGRES_DB"),
+            "USER": os.getenv("POSTGRES_USER"),
+            "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+            "HOST": os.getenv("POSTGRES_HOST", "localhost"),
+            "PORT": os.getenv("POSTGRES_PORT", "5432"),
+        }
+    }
+
 
 
 # Password validation
