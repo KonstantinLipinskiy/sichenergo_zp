@@ -58,7 +58,7 @@ class TransformersTmzView(View):
 class TransformersYzView(View):
 	def get(self, request):
 		trans_yz = TransformYZ.objects.all()
-		inform = InformTransform.objects.all()
+		inform = InformTransform.objects.first()
 		context = {
 			"title": "Y/Z",
 			"trans_yz": trans_yz,
