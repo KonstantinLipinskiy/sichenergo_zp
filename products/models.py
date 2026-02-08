@@ -21,7 +21,6 @@ class InformTransform(models.Model):
 		blank=True,
 		null=True,
 		verbose_name="Відео",
-		storage=RawMediaCloudinaryStorage()
 	)
 	description = models.TextField(verbose_name="Опис", blank=True)
 	file_ol = models.FileField(upload_to="transform/ol/", verbose_name="Файл для скачування")
