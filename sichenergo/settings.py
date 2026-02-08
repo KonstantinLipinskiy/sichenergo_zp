@@ -217,3 +217,8 @@ cloudinary.config(
     secure=True
 )
 
+from cloudinary_storage.storage import RawMediaCloudinaryStorage
+
+VIDEO_STORAGE = RawMediaCloudinaryStorage()
+
+
