@@ -14,16 +14,18 @@ class TransformItem(models.Model):
 		verbose_name = "Серію"
 		verbose_name_plural = "Серія трансформатора"
 
+
 class InformTransform(models.Model):
 	title = models.CharField(max_length=150, verbose_name="Трансформатор (опитовий лист)")
-	video = CloudinaryField(
-		resource_type="video",
+	video = models.FileField(
+		storage=RawMediaCloudinaryStorage(),
 		blank=True,
 		null=True,
-		verbose_name="Відео",
+		verbose_name="Відео"
 	)
 	description = models.TextField(verbose_name="Опис", blank=True)
 	file_ol = models.FileField(upload_to="transform/ol/", verbose_name="Файл для скачування")
+
 	def __str__(self):
 		return self.title
 
