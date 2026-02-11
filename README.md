@@ -92,6 +92,6 @@ python manage.py runserver
 Подробнее см. файл LICENSE.md.
 
 ## Контакты
-Веб‑сайт:  
+Веб‑сайт: http://sich-energo.zp.ua/ 
 
 Email: tovsichenergo@gmail.com
