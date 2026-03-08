@@ -32,6 +32,7 @@ services:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - static_volume:/app/staticfiles
       - media_volume:/app/media
+      - .:/app
     depends_on:
       - web
 
