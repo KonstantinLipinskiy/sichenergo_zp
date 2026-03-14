@@ -8,7 +8,10 @@
 	<link rel="icon" href="{% static 'deps/img/trans1.png' %}" type="image/x-icon">
 	{% block css %}{% endblock css %}
 	{% block boxicon %}{% endblock %}
-	<title>{{title}}</title>
+
+	{% block title %}{% endblock %}
+	{% block meta %}{% endblock %}
+
 </head>
 <body>
 	<div class="wrapper">
