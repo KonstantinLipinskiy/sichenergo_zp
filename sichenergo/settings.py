@@ -30,9 +30,12 @@ if not SECRET_KEY: # Для CI или тестов — fallback
 	SECRET_KEY = "test-secret-key-for-ci"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+	"sich-energo.zp.ua",
+	"www.sich-energo.zp.ua",
+	"admin.sich-energo.zp.ua",]
 
 
 # Application definition
@@ -222,3 +225,23 @@ from cloudinary_storage.storage import RawMediaCloudinaryStorage
 VIDEO_STORAGE = RawMediaCloudinaryStorage()
 
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://sich-energo.zp.ua",
+    "https://www.sich-energo.zp.ua",
+    "https://admin.sich-energo.zp.ua",
+]
+
+# Принудительный редирект на HTTPS
+SECURE_SSL_REDIRECT = True
+
+# Куки только по HTTPS
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# Защита от XSS в куках
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = True
+
+# Заголовки безопасности
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
