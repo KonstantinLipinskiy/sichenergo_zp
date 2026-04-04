@@ -35,7 +35,8 @@ DEBUG = False
 ALLOWED_HOSTS = [
 	"sich-energo.zp.ua",
 	"www.sich-energo.zp.ua",
-	"admin.sich-energo.zp.ua",]
+	"admin.sich-energo.zp.ua",
+	"127.0.0.1", "localhost"]
 
 
 # Application definition
