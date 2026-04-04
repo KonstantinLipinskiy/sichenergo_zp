@@ -357,9 +357,10 @@ h1 {
     .main__content-index-item {
         padding: 10px;
         font-size: 16px;
+		  width: 95%;
     }
     .index-link {
-        width: 90%;
+        width: 95%;
         margin-bottom: 25px;
     }
     .main__content-index-title {
