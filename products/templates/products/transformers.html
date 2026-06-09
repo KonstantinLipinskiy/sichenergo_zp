@@ -2,116 +2,107 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'deps/css/goods/transform.css' %}">
+	<link rel="stylesheet" href="{% static 'deps/css/goods/transform.css' %}">
 {% endblock %}
 
 {% block title %}
-    ТОВ ВТК «Січ Енерго» — Каталог силових трансформаторів до 2500 кВА
+	ТОВ ВТК «Січ Енерго» — Каталог силових трансформаторів до 2500 кВА
 {% endblock title %}
 
 {% block meta %}
-    <meta name="description" content="Каталог силових масляних трансформаторів серій ТМ, ТМГ, ТМЗ, ТМЖГ та Y/Zн‑11 від ТОВ ВТК «Січ Енерго». Класи напруги до 35 кВ, потужність до 2500 кВА. Надійні рішення для промисловості, бізнесу та енергетичної інфраструктури України.">
-    <meta name="keywords" content="Січ Енерго, силові трансформатори, трансформатори ТМ, трансформатори ТМГ, трансформатори ТМЗ, трансформатори ТМЖГ, схема Y/Zн‑11, виробництво трансформаторів, енергопостачання, електрообладнання, Запоріжжя, Україна, силовые трансформаторы, трансформаторы ТМ, трансформаторы ТМГ, трансформаторы ТМЗ, трансформаторы ТМЖГ, схема Y/Zн‑11, производство трансформаторов, энергоснабжение, электрооборудование">
+	<meta name="description" content="Каталог силових масляних трансформаторів серій ТМ, ТМГ, ТМЗ, ТМЖГ та Y/Zн‑11 від ТОВ ВТК «Січ Енерго». Класи напруги до 35 кВ, потужність до 2500 кВА. Надійні рішення для промисловості, бізнесу та енергетичної інфраструктури України.">
+	<meta name="keywords" content="Січ Енерго, силові трансформатори, трансформатори ТМ, трансформатори ТМГ, трансформатори ТМЗ, трансформатори ТМЖГ, схема Y/Zн‑11, виробництво трансформаторів, енергопостачання, електрообладнання, Запоріжжя, Україна, силовые трансформаторы, трансформаторы ТМ, трансформаторы ТМГ, трансформаторы ТМЗ, трансформаторы ТМЖГ, схема Y/Zн‑11, производство трансформаторов, энергоснабжение, электрооборудование">
 {% endblock meta %}
 
 
 <body>
-{% block main %}
-    <main class="main">
-        <div class="container">
-            <div class="main__row">
-                <!-- Блок последней новости -->
-                <div class="main__inform">
-                    <div class="main__inform-title">ОСТАННІ ПОДІЇ</div>
-                    <div class="main__inform-body">
-                        <div class="main__inform-image">
-                            {% if news.content_type == 'image' %}
-                                <img src="{{news.content_file.url}}" alt="{{news.title}}">
-                            {% elif news.content_type == 'video' %}
-                                <video autoplay muted loop playsinline src="{{news.content_file.url}}"></video>
-                            {% endif %}
-                        </div>
-                        <div class="main__inform-text">
-                            <div class="main__inform-text-region">Регіон {{news.region}}</div>
-                            <div class="main__inform-text-title">{{news.title}}</div>
-                            <div class="main__inform-text-date">{{news.created_at|date:"d.m.Y"}}</div>
+	{% block main %}
+	<main class="main">
+		<div class="container">
+			<div class="main__row">
+				<div class="main__inform">
+					<div class="main__inform-title">ОСТАННІ ПОДІЇ</div>
+					<div class="main__inform-body">
+						<div class="main__inform-image">
+							{% if news.content_type == 'image' %}
+								<img src="{{news.content_file.url}}" alt="{{news.title}}">
+							{% elif news.content_type == 'video' %}
+								<video autoplay muted loop playsinline src="{{news.content_file.url}}"></video>
+							{% endif %}
+						</div>
+						<div class="main__inform-text">
+							<div class="main__inform-text-region">Регіон {{news.region}}</div>
+							<div class="main__inform-text-title">{{news.title}}</div>
+							<div class="main__inform-text-date">{{news.created_at|date:"d.m.Y"}}</div>
 
-                            <!-- Скрытый текст и рубрика для модалки -->
-                            <div class="main__inform-text-text" style="display:none;">
-                                {{news.content|linebreaks}}
-                            </div>
-                            <div class="main__inform-text-heading" style="display:none;">
-                                Рубрика "{{news.heading}}"
-                            </div>
-                        </div>
-                    </div>
-                </div>
+							<div class="main__inform-text-text" style="display:none;">
+								{{news.content|linebreaks}}
+							</div>
+							<div class="main__inform-text-heading" style="display:none;">
+								Рубрика "{{news.heading}}"
+							</div>
+						</div>
+					</div>
+				</div>
 
-                <!-- Блок продукции -->
-                <div class="main__content">
-                    <h1>Cилові масляні трансформатори з класами напруги до 35 кВ та потужністю до 2500 кВА (ТМ, ТМГ, ТМЗ, ТМЖГ)</h1>
-                    <div class="main__content-items">
-                        {% for item in series %}
-                            {% if item.name == 'Трансформатори серії ТМ та ТМЖ' %}
-                                <a href="{% url 'products:tm' %}" class="trans-series">
-                            {% elif item.name == 'Трансформатори серії ТМГ та ТМЖГ' %}
-                                <a href="{% url 'products:tmg' %}" class="trans-series">
-                            {% elif item.name == 'Трансформатори серії ТМЗ' %}
-                                <a href="{% url 'products:tmz' %}" class="trans-series">
-                            {% elif item.name == 'Трансформатори серії ТМГ Y/Z' %}
-                                <a href="{% url 'products:yz' %}" class="trans-series">
-                            {% endif %}
-                                    <div class="main__content-item">
-                                        <div class="main__content-item-image">
-                                            <img src="{{item.image.url}}" alt="{{item.name}}">
-                                        </div>
-                                        <div class="main__content-item-series">
-                                            <h3>{{item.name}}</h3>
-                                        </div>
-                                        <div class="main__content-item-detail">
-                                            <h4>Детальніше</h4>
-                                        </div>
-                                    </div>
-                                </a>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+				<div class="main__content">
+					<h1>Cилові масляні трансформатори з класами напруги до 35 кВ та потужністю до 2500 кВА (ТМ, ТМГ, ТМЗ, ТМЖГ)</h1>
+					<div class="main__content-items">
+						{% for item in series %}
+							{% if item.name == 'Трансформатори серії ТМ та ТМЖ' %}
+								<a href="{% url 'products:tm' %}" class="trans-series">
+							{% elif item.name == 'Трансформатори серії ТМГ та ТМЖГ' %}
+								<a href="{% url 'products:tmg' %}" class="trans-series">
+							{% elif item.name == 'Трансформатори серії ТМЗ' %}
+								<a href="{% url 'products:tmz' %}" class="trans-series">
+							{% elif item.name == 'Трансформатори серії ТМГ Y/Z' %}
+								<a href="{% url 'products:yz' %}" class="trans-series">
+							{% endif %}
+									<div class="main__content-item">
+										<div class="main__content-item-image">
+											<img src="{{item.image.url}}" alt="{{item.name}}">
+										</div>
+										<div class="main__content-item-series">
+											<h3>{{item.name}}</h3>
+										</div>
+										<div class="main__content-item-detail">
+											<h4>Детальніше</h4>
+										</div>
+									</div>
+								</a>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
 
-    <!-- Модальное окно -->
-    <div class="modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <img class="modal-image" src="" alt=""/>
-            <video autoplay muted loop playsinline class="modal-video" src="" controls></video>
+	<div class="modal">
+		<div class="modal-content">
+			<span class="modal-close">&times;</span>
+			<img class="modal-image" src="" alt=""/>
+			<video autoplay muted loop playsinline class="modal-video" src="" controls></video>
 
-            <div class="modal-text">
-                <!-- Заголовок -->
-                <div class="modal-title">{{news.title}}</div>
+			<div class="modal-text">
+				<div class="modal-title">{{news.title}}</div>
+				<div class="modal-text-content">
+					{{news.content|linebreaks}}
+				</div>
+				<div class="modal-region">Регіон: {{news.region}}</div>
+				<div class="modal-heading">Рубрика: {{news.heading}}</div>
+				<div class="modal-date">Дата: {{news.created_at|date:"d.m.Y"}}</div>
+				<div class="modal-name">Автор: Січ Енерго</div>
+			</div>
+		</div>
+	</div>
 
-                <!-- Основной текст -->
-                <div class="modal-text-content">
-                    {{news.content|linebreaks}}
-                </div>
-
-                <!-- Дополнительные подписи -->
-                <div class="modal-region">Регіон: {{news.region}}</div>
-                <div class="modal-heading">Рубрика: {{news.heading}}</div>
-                <div class="modal-date">Дата: {{news.created_at|date:"d.m.Y"}}</div>
-                <div class="modal-name">Автор: Січ Енерго</div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.querySelector('.menu');
-            menu.classList.toggle('active');
-        }
-    </script>
-    <script src="{% static 'deps/js/news-index.js' %}"></script>
-{% endblock %}
+	<script>
+		function toggleMenu() {
+			const menu = document.querySelector('.menu');
+			menu.classList.toggle('active');
+		}
+	</script>
+	<script src="{% static 'deps/js/news-index.js' %}"></script>
+	{% endblock %}
 </body>
 </html>

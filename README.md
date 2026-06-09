@@ -1,39 +1,66 @@
 # SichEnergo Website
 
-Коммерческий сайт компании SichEnergo для представления продукции: трансформаторы, КТП, КСО, услуги, фото продукции, чертежи и опросные листы.
+Corporate website of **SichEnergo**, a manufacturer of power distribution equipment.
 
-## Технологии
-- Python 3.11 
-- Django
-- HTML
-- CSS
-- Amazon Web Services (AWS)
-- CI/CD
-- Docker
-- Nginx
-- Cloudinary
-- PostgreSQL
+The website showcases the company's products and services, including:
 
-## Установка и запуск
+* Power transformers
+* Package transformer substations (KTP)
+* Switchgear units (KSO)
+* Engineering and electrical services
+* Product galleries
+* Technical drawings
+* Specification questionnaires
 
-### 1. Клонирование проекта
-```
+---
+
+## Technology Stack
+
+* Python 3.11
+* Django
+* PostgreSQL
+* HTML5
+* CSS3
+* Nginx
+* Docker
+* Amazon Web Services (AWS)
+* Cloudinary
+* CI/CD
+
+---
+
+## Installation and Setup
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/your-repo/sichenergo-site.git
 cd sichenergo-site
 ```
-### 2. Создание и активация виртуального окружения
-```
+
+### 2. Create and Activate a Virtual Environment
+
+```bash
 python -m venv venv
-source venv/bin/activate   # Linux/MacOS
-venv\Scripts\activate      # Windows
+
+# Linux/macOS
+source venv/bin/activate
+
+# Windows
+venv\Scripts\activate
 ```
-### 3. Установка зависимостей
-```
+
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
 ```
-### 4. Настройка переменных окружения
-Создайте файл .env в корне проекта и укажите:
-```
+
+### 4. Configure Environment Variables
+
+Create a `.env` file in the project root directory:
+
+```env
 SECRET_KEY=your_secret_key
 DEBUG=True
 
@@ -47,52 +74,136 @@ CLOUD_NAME=your_cloudinary_cloud_name
 API_KEY=your_cloudinary_api_key
 API_SECRET=your_cloudinary_api_secret
 ```
-### 5. Настройка базы данных PostgreSQL
-Настройка базы данных PostgreSQL
-```
+
+### 5. Configure PostgreSQL
+
+```sql
 CREATE DATABASE sichenergo_db;
-CREATE USER sichenergo_user WITH PASSWORD 'your_password';
-GRANT ALL PRIVILEGES ON DATABASE sichenergo_db TO sichenergo_user;
+
+CREATE USER sichenergo_user
+WITH PASSWORD 'your_password';
+
+GRANT ALL PRIVILEGES
+ON DATABASE sichenergo_db
+TO sichenergo_user;
 ```
-### 6. Применение миграций
-```
+
+### 6. Apply Database Migrations
+
+```bash
 python manage.py migrate
 ```
-### 7. Создание суперпользователя
-```
+
+### 7. Create an Administrator Account
+
+```bash
 python manage.py createsuperuser
 ```
-### 8. Сбор статики
-```
+
+### 8. Collect Static Files
+
+```bash
 python manage.py collectstatic
 ```
-### 9. Запуск сервера разработки
-```
+
+### 9. Start the Development Server
+
+```bash
 python manage.py runserver
 ```
-Сайт будет доступен по адресу: http://127.0.0.1:8000
 
-## Хранение медиа
-Все фото, видео, чертежи и опросные листы загружаются через админку и сохраняются в Cloudinary.
+The application will be available at:
 
-Для работы необходимо указать переменные окружения CLOUD_NAME, API_KEY, API_SECRET.
+```text
+http://127.0.0.1:8000
+```
 
-## Логирование
-Все события Django и приложения entrance пишутся в файл django_debug.log в корне проекта.
+---
 
-## Деплой
-Проект может быть развернут на AWS (Elastic Beanstalk / EC2 / ECS).
+## Media Storage
 
-Рекомендуется использовать Docker и настроенный CI/CD pipeline для автоматического деплоя.
+All media files are uploaded through the Django administration panel and stored in **Cloudinary**, including:
 
-## Лицензия
-Код распространяется по MIT License.
+* Product photographs
+* Videos
+* Technical drawings
+* Specification questionnaires
 
-Фото, видео, чертежи и опросные листы защищены авторским правом © SichEnergo.
+Required environment variables:
 
-Подробнее см. файл LICENSE.md.
+```env
+CLOUD_NAME
+API_KEY
+API_SECRET
+```
 
-## Контакты
-Веб‑сайт: http://sich-energo.zp.ua/ 
+---
 
-Email: tovsichenergo@gmail.com
+## Logging
+
+Application and Django events are logged to:
+
+```text
+django_debug.log
+```
+
+located in the project's root directory.
+
+---
+
+## Deployment
+
+The project can be deployed to AWS using:
+
+* Elastic Beanstalk
+* EC2
+* ECS
+
+For production environments, it is recommended to use:
+
+* Docker containers
+* Nginx reverse proxy
+* Automated CI/CD pipelines
+
+---
+
+## Project Structure
+
+```text
+sichenergo-site/
+│
+├── apps/
+├── static/
+├── templates/
+├── media/
+├── requirements.txt
+├── manage.py
+├── .env
+└── README.md
+```
+
+---
+
+## License
+
+The source code is distributed under the MIT License.
+
+Copyright © SichEnergo.
+
+All photographs, videos, technical drawings, specification questionnaires, and other proprietary materials remain the intellectual property of SichEnergo and are protected by applicable copyright laws.
+
+For details, see:
+
+```text
+LICENSE.md
+```
+
+---
+
+## Contact Information
+
+Website:
+http://sich-energo.zp.ua/
+
+Email:
+[tovsichenergo@gmail.com](mailto:tovsichenergo@gmail.com)
